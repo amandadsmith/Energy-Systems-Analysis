@@ -1,0 +1,202 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{subfigure}
+\usepackage{stackrel}
+\usepackage{blindtext}
+
+\usepackage{biblatex}
+\addbibresource{library.bib}
+
+\oddsidemargin=0.15in
+\evensidemargin=0.15in
+\topmargin=-.5in
+\textheight=9in
+\textwidth=6.25in
+
+\usepackage[colorlinks=true,breaklinks,pdfpagemode=none,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage{enumerate}
+
+%\usepackage{enumitem}
+%\setlist{itemsep=0mm}
+
+
+
+%\usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{epsfig}
+\usepackage{amsmath,amsfonts,amssymb,bm}
+%\usepackage{pst-grad} % For gradients
+%\usepackage{pst-plot} % For axes
+
+
+\begin{document}
+
+   \noindent
+   \begin{center}
+
+   \hrulefill
+   
+   \vspace{5pt}
+   
+   \makebox[\textwidth]{ {\bf Energy Systems Analysis} \hfill  A.D. Smith 2019}
+   \vspace{0pt}
+   
+   {\Large \hfill  Lecture 1. Sustainability, Site-Specific Design, Systems Thinking}
+   \vspace{5pt}
+   
+  
+   \hrulefill
+   \end{center}
+
+{\color{darkgray}{\center{ \small{      ``System thinkers see the world as a collection of feedback processes.''
+\\%[3pt]
+\rightline{{\rm --- Donella H. Meadows \cite{Donella_H_Meadows2016-nq}}}}}}}
+
+\section{What is sustainability?}
+
+ One of the best known descriptors of sustainability is the call for \textit{sustainable development} from the Bruntland report \cite{bruntland}:
+ 
+ \begin{quote}
+ Humanity has the ability to make development sustainable to ensure that it meets the needs of the present without compromising the ability of future generations to meet their own needs.
+ \end{quote}
+ 
+ Sustainability is often presented as an umbrella term for a set of concerns about the work that we do, encompassing three pillars or dimensions of the world:
+ 
+\begin{itemize}
+\item environmental (ecological)
+\item social (people)
+\item economic (prosperity)
+\end{itemize}
+
+Three basic definitions of the world \textit{sustainable} are shown on Dictionary.com \cite{noauthor_undated-fd}:
+
+\begin{enumerate}
+\item ``capable of being supported or upheld...''
+\item ``pertaining to a system that maintains its own viability...''
+\item ``able to be maintained or kept going...''
+\end{enumerate}
+
+As engineers, designers, or other professionals, and as human citizens of the world, we must think carefully and critically to decide for ourselves what \textit{sustainability} means and what it looks like in our work and all of our daily interactions.
+ 
+\section{What is site-specific design?}
+
+In my own research group:
+
+\begin{quote}
+    \textit{Site-specific} means that we think about the unique aspects of a particular place or facility and how they relate to energy demands and energy conversion options. \cite{SSESresearch}
+\end{quote}
+
+Therefore, site-specific does not mean restricted to a narrow system boundary at a given site, but rather that the analysis of a system recognizes that it is uniquely integrated with other systems (physical, social, economic, or other) based on its location in space-time. Site-specific \textit{design} means that the actions we recommend affecting a particular place or facility are evaluated within this context.
+
+\section{What is systems thinking?}
+
+In a review paper called ``What is Systems Thinking?'', Monat and Gannon tackle the question, although they do not arrive at a single normative definition. Critically, they note that ``Systems  Thinking  is  a  perspective,  a  language,  and a set of tools. \cite{Monat2015}'' They pivot to framing systems thinking largely in terms of what it is \textit{not}:
+
+\begin{quotation}
+    Systems Thinking is the opposite of linear thinking; holistic (integrative)  versus analytic (dissective)  thinking;  recognizing  that  repeated  events  or  patterns  derive  from  systemic  structures  which,  in  turn,  derive  from  mental  models;  recognizing  that behaviors derive from  structure; a  focus on  relationships  vs  components;  and  an  appreciation of  self-organization  and  emergence. \cite{Monat2015}
+\end{quotation}
+
+In this course, we will attempt to move toward \textit{integrative} thinking by taking a broader perspective on energy systems and taking a greater interest in \textit{relationships} between parts of an energy system, and between energy systems and the surrounding ecological, economic, and societal structures. We will take a broad view of \textit{structure}, meaning not only the shape and placement of matter but rather the way that things are arranged with respect to other things. We will look at \textit{events or patterns} in time-series data and grapple with translating this into meaningful understanding. I hope that as a result you will re-examine your own \textit{mental models} about how things work. 
+
+We will use the \textit{linear} models we have gained in our prior educational experience, we will leverage our \textit{analytic} thinking, and we will not forget the \textit{components} that make up the systems we study. Systems thinking will add to, not replace, your current knowledge and cognitive skill set.
+
+\subsection{Systems thinking as a questioning mindset}
+
+Gerald Weinberg provided 3 Systems Thinking Questions \cite{Weinberg_Gerald1975-nc}:
+
+\begin{quote}
+
+\begin{enumerate}
+    \item Why do I see what I see?
+    \item Why do things stay the same?
+    \item Why do things change?
+\end{enumerate}
+    
+\end{quote}
+
+This approach to developing a questioning mindset may seem simplistic, but it is a great place to start when you're examining something new, or attempting to examine something in a new way. If you find that it sparks even more and deeper questions, then you are doing real systems thinking!
+
+\subsection{Need for systems thinking in engineering and design}
+
+In describing a particular environmental crisis (\textit{environment} pillar) involving public health (\textit{society} pillar) in a remote village with limited resources (\textit{economy} pillar), Monat and Gannon state that ``What was thought to be a simple engineering problem turned out to be an engineering/socio-economic/logistics/psychological problem. \cite{Monat2018}'' 
+
+I would posit that there are likely no engineering problems which have the ability to impact life on Earth that are truly simple. It is difficult to think of a system which can be altered by engineering or design and is entirely isolated from socio-economic realities, logistics, or human psychology.
+
+\subsection{Systems engineering}
+
+Monat and Gannon describe \textit{systems engineering} thusly:
+
+\begin{quotation}
+    Systems Engineering is an interdisciplinary approach and means to enable the development of successful systems.  It focuses on defining customer needs and required functionality early in the development cycle, documenting requirements, and then proceeding with design, synthesis, validation, deployment,  maintenance,  evolution  and  eventual  disposal  of  a  system.   Systems  Engineering integrates  a  wide  range  of  engineering  disciplines  into  a  team  effort,  which  uses  a  structured development process that proceeds from an initial concept to production and operation of a system.
+\end{quotation}
+
+Systems engineering may be studied as an area of focus and treated as its own discipline, but engineers trained in any traditional discipline can also become systems engineers.
+
+
+\subsection{System of systems}
+
+Systems engineers or scientists often speak of a \textit{System of Systems} (SoS):
+
+\begin{enumerate}
+    \item Two or more systems that are separately defined but operate together to perform a common goal. (Checkland 1999) \cite{noauthor_undated-vl}
+    \item An assemblage of components which individually may be regarded as systems...(Maier 1998) \cite{noauthor_undated-vl}
+    \item A system-of-interest whose system elements are themselves systems; typically these entail large scale inter-disciplinary problems with multiple, heterogeneous, distributed systems. (INCOSE 2012) \cite{noauthor_undated-vl}
+\end{enumerate}
+
+
+We can, of course, conjure examples of a system of systems of systems, and of a system of systems of systems of systems \ldots It's turtles all the way down.
+
+The way we define what `a system' is, and what systems interact with or comprise other systems, is a matter related to the problem of interest:
+
+\begin{quote}
+    There are no separate systems. The world is a continuum. Where to draw a boundary around a system depends on the purpose of the discussion---the questions we want to ask. \cite{Donella_H_Meadows2016-nq}
+\end{quote}
+
+It is important to note that the drawing of a system boundary is an analytical or design choice. It will affect the results of our analysis or the product of our design process.
+
+\subsection{Complex systems}
+
+Many thinkers from many different disciplines have attempted to describe \textit{complexity} as a phenomena. Complexity theory is a field unto itself, recently popularized by Geoffrey West of the Sante Fe Institute \cite{scale}. Complexity is a major concept behind the development of computer science as a discipline \cite{Hartmanis1994-sq}, but \textit{complexity science} is inherently interdisciplinary \cite{Downey2012-ce}.
+
+A paper presented at a systems engineering conference several years ago by Clark and Jacques states intriguingly:
+
+\begin{quote}
+There are hints that energy plays a role in defining complexity. As a general rule, systems commonly  recognized as complex process more energy than less complex ones. \cite{Clark2012-bm}
+\end{quote}
+
+I might add that complex energy systems often perform energy conversion, transfer, or storage in ways that result in emergent behaviors.\\
+
+The study of complex systems may also be called \textit{systems science}: \begin{quote}
+    the field of science that studies the nature of complex systems in nature, society, and science. \cite{noauthor_undated-rd}
+\end{quote}
+
+\section{Conclusion}
+
+I hope you begin to see that buildings themselves and all of the energy conversion and storage systems that are part of the human-built environment are ripe for exploration using the concepts of sustainability, site-specific design, and systems thinking. We will return to these concepts often to frame our thinking and develop our analytical methods.
+
+% \subsection{System diagrams}
+
+% %look at presentation I gave at Wasatch Experience 2016
+
+% \cite{Knopf2011-kj}
+
+\bigskip
+
+\noindent
+\texttt{\footnotesize RESTRICTED PUBLIC LICENSE --- READ BEFORE SHARING. This is a draft version made available by Amanda D. Smith under a Creative Commons Attribution-NonCommercial-ShareAlike license. 
+\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}}
+
+\newpage
+% references
+\printbibliography
+
+\end{document}
