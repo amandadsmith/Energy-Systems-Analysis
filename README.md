@@ -1,4 +1,4 @@
-# Energy Systems Analysis, ME EN 5790/6960-004
+# Energy Systems Analysis, ME EN 5790/6790
 ## Instructor: Amanda D. Smith
 ## University of Utah
 
