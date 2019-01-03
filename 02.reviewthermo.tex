@@ -5,7 +5,7 @@
 \usepackage{graphicx}
 \usepackage{algpseudocode}
 \usepackage{algorithm}
-
+\usepackage{enumitem}
 
 
 \usepackage{tikz}
@@ -122,9 +122,9 @@ $$\sum \dot{m}_{in} = \sum \dot{m}_{out}$$
 
 $$0  = \dot Q - \dot W + \sum \dot{m}_{i}h_{i} -\sum \dot{m}_{e}h_{e}$$
 
-\medskip
+\smallskip
 
-
+\noindent
 \underline{First Law Simplifications}
 
 Closed system, heat transfer at constant volume: \hspace{0.25cm} $\boxed{$$q_{ab}=u_b-u_a}$
@@ -150,7 +150,7 @@ $$(m_2u_2 - m_1u_1)_{system} = Q - W + \sum m_ih_i - \sum m_eh_e$$
 
 \subsection{Efficiency}
 
-First Law efficiency is a ratio between the benefit to us of a particular process and the cost to us to run that process.\\
+First Law efficiency is a ratio between the benefit to us of a particular process (such as work) and the cost to us to run that process (such as thermal or chemical energy).\\
 
 \noindent
 \underline{Heat Engines:} \\
@@ -175,26 +175,19 @@ Coeff. of performance:  $COP_{HP}=\frac{Q_H}{W_{in}}$ \hspace{0.25cm} Ideal: $CO
 \section{Second Law}
 
 \noindent
-\underline{Second Law %Expressions
-}
-\\
-
-\noindent
 Clausius inequality: \oint (\frac{\diff \delta Q}{T}) \leq 0} $\\
 
 %Kelvin-Planck statement: A system cannot produce (net) work while operating on a cycle, in contact with a single thermal energy reservoir.}
-\\ 
+
 
 \noindent
 \underline{Reversible (Ideal) Processes and the Property Entropy}
-\\
 
 \noindent
 Clausius definition of entropy: $S_2-S_1= \int (\frac{\diff \delta Q}{T})$ \hspace{.25cm} Heat transfer: $Q = \int TdS$ \hspace{0.25cm} per unit mass: $s = \frac{S}{m}$\\
 
 \noindent
 \underline{Irreversible (Real) Processes}
-\\
 
  $S_2-S_1} = \int (\frac{\diff \delta Q}{T}) + S_{gen}$ 
 \hspace{1.2cm}
@@ -205,15 +198,14 @@ Rate form: $\frac{dS_{sys}}{dt} = \dot{S}_{in} - \dot{S}_{out} + \dot{S}_{gen}$
 
 Increase of entropy principle: $\Delta S_{sys,isolated} \geq 0 $\\
 
-\\
 \noindent
 \underline{Isentropic Efficiencies (Steady-flow Devices)}
-\\
+\smallskip
 
-\underline{Turbines}\\
+\underline{Turbines}
 $${\eta}_{t} = \frac{w_a}{w_s} = \frac{h_1-h_{2a}}{h_1-h_{2s}}
 
-\underline{Compressors and Pumps}\\
+\underline{Compressors and Pumps}
 
 \hspace{3.1cm}
 ${\eta}_{c} = \frac{w_s}{w_a} = \frac{h_{2s}-h_1}{h_{2a}-h_1}$
@@ -222,15 +214,24 @@ ${\eta}_{p} = \frac{w_s}{w_a} = \frac{h_{2s}-h_1}{h_{2a}-h_1} \approx \frac{v(P_
 
 \noindent
 \underline{Entropy Transfer}
-\\
 
 $S_{heat} = \int (\frac{\diff \delta Q}{T}) \approx \sum \frac{Q_k}{T_k}$ for each location $k$
 \hspace{1.5cm}
-$S_{mass}=ms$\\
+$S_{mass}=ms$
+
+
+\subsection{Efficiency}
+
+Second Law efficiency is a ratio between the performance of a particular device or system and the ideal theoretical performance for the same device or system.
+
+$\eta_{II} =\frac{\eta_{th}}{\eta_{th,rev}}$ \hspace{6cm} $\eta_{II} =\frac{COP}{COP_{rev}}$
+
+\subsection{Entropy generation}
+
+Entropy generation is a quantitative measure indicating how irreversible an actual process is. See Chapter 7 of \cite{cengel}.\\
 
 \noindent
 \underline{Entropy Balance}
-\\
 
 Closed: 
 $S_2 - S_1 = \sum \frac{Q_k}{T_k} + S_{gen} $
@@ -240,18 +241,11 @@ Open:
 $S_2 - S_1 = \sum \frac{Q_k}{T_k} + \sum m_i s_i - \sum m_e s_e +S_{gen}$
 \hspace{.5cm}
 Rate:
-$\frac{dS_{sys}}{dt} = \sum \frac{\dot{Q}_k}{T_k} + \sum \dot{m}_i s_i - \sum \dot{m}_e s_e + \dot{S}_{gen}$\\\\
-
-
-\subsection{Efficiency}
-
-Second Law efficiency is a ratio between the performance of a particular device or system and the ideal theoretical performance for the same device or system.
-
-$\eta_{II} =\frac{\eta_{th}}{\eta_{th,rev}}$ \hspace{1cm} $\eta_{II} =\frac{COP}{COP_{rev}}$
-
-\subsection{Entropy generation}
+$\frac{dS_{sys}}{dt} = \sum \frac{\dot{Q}_k}{T_k} + \sum \dot{m}_i s_i - \sum \dot{m}_e s_e + \dot{S}_{gen}$
 
 \subsection{Exergy destruction}
+
+Exergy destruction is proportional to entropy genration. The difference is that it's quantifying the \textit{lost work}, which is a measure of the reduction in available work due to the condition of the system and its surroundings. See Chapter 8 of \cite{cengel}.
 
 \section{Heat Transfer}
 
@@ -260,13 +254,11 @@ Energy transferred due to a temperature difference falls under the category of h
 For students who have not yet taken a heat transfer course, or those who want to refresh, I recommend:
 
 \begin{enumerate}
-
 \item Read the Topic of Special Interest section called ``Mechanisms of Heat Transfer'' at the end of the second chapter of our undergraduate thermo text \cite{cengel}. 
 \item Familiarize yourself with the idea of view factors as described in this video from LearnChemE: \url{https://youtu.be/UIfRBB49MC4}.
-
 \end{enumerate}
 
-To begin connecting heat transfer concepts with building science, I recommend that everyone view this video on solar orientation from Solar Schoolhouse: \url{https://youtu.be/OR8EQ0DWpPw}.
+To begin connecting heat transfer concepts with building science, I recommend that you view this video on solar orientation from Solar Schoolhouse: \url{https://youtu.be/OR8EQ0DWpPw}.
 
 \section{Fluids}
 
@@ -274,12 +266,14 @@ Energy and mass transferred due to fluid movement fall under the category of flu
 Water and Wastewater Courses: \url{https://youtu.be/CzyWNamGizA}.
 
 Fluids are used to transfer energy to, from, and within buildings, primarily using just a few common fluid types:
-\begin{itemize}
+
+\begin{itemize}[noitemsep]%,nolistsep]
 \item air
 \item water 
 \item refrigerants
 \end{itemize}
-To begin connecting fluid flow concepts with building science, you will have a future assignment to watch a video on HVAC systems in buildings from our first guest speaker, local engineer Jane Guyer, PE (\url{https://youtu.be/Kt1j_aAApwg}).
+
+To begin connecting fluid flow concepts with building science, you will be required as a future assignment to watch a video on HVAC systems from our first guest speaker, professional engineer Jane Guyer  (\url{https://youtu.be/Kt1j_aAApwg}).
 
 
 \section{How thermodynamics affects energy systems analysis}
