@@ -4,7 +4,7 @@
 
 These lectures are for the Spring 2019 offering of the course Energy Systems Analysis.
 
-**Course Description**: Mathematical modeling and simulation of building energy systems anddistributed energy resources;  Thermoeconomic evaluation of energy efficiency improvements andcalculation  of  primary  energy  consumption;  Quantification  of  environmental  impacts  associatedwith energy conversion, particularly emissions and water usage; Systems thinking, parametric anal-ysis, sensitivity analysis, and uncertainty analysis for models of integrated energy systems.
+**Course description**: Mathematical modeling and simulation of building energy systems and distributed energy resources;  Thermoeconomic evaluation of energy efficiency improvements and calculation  of  primary  energy  consumption;  Quantification  of  environmental  impacts  associated with energy conversion, particularly emissions and water usage; Systems thinking, parametric analysis, sensitivity analysis, and uncertainty analysis for models of integrated energy systems.
 
 **Intended audience**: Upper-level undergrads and early graduate students with a background in engineering, energy and environmental sciences, or architecture who want to incorporate sustainability and systems thinking into their work.
 
