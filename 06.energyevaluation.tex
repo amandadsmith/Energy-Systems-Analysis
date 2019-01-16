@@ -1,0 +1,215 @@
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{subfigure}
+\usepackage{stackrel}
+\usepackage{blindtext}
+
+\usepackage{biblatex}
+\addbibresource{library.bib}
+
+\oddsidemargin=0.15in
+\evensidemargin=0.15in
+\topmargin=-.5in
+\textheight=9in
+\textwidth=6.25in
+
+\usepackage[colorlinks=true,breaklinks,pdfpagemode=none,linkcolor=blue,citecolor=blue]{hyperref}
+
+\usepackage{enumerate}
+\usepackage{enumitem}
+\setlist{itemsep=-1mm}
+
+
+
+%\usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{epsfig}
+\usepackage{amsmath,amsfonts,amssymb,bm}
+%\usepackage{pst-grad} % For gradients
+%\usepackage{pst-plot} % For axes
+
+
+%% Environment definitions (add your own here)
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+
+\newenvironment{proof}{\noindent{\bf Proof}\hspace*{1em}}{\qed\bigskip}
+
+%% New commands (add your own here)
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\hv}{\hat{v}}
+\newcommand{\hL}{\hat{L}}
+\newcommand{\hlambda}{\hat{\lambda}}
+\newcommand{\homega}{\hat{\omega}}
+\newcommand{\hp}{\hat{p}}
+\newcommand{\hW}{\hat{W}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\qed}{\rule{7pt}{7pt}}
+\newcommand{\cF}{\mathcal{F}}
+
+
+\begin{document}
+
+   \noindent
+   \begin{center}
+
+   \hrulefill
+   
+   \vspace{5pt}
+   
+   \makebox[\textwidth]{ {\bf Energy Systems Analysis} \hfill  A.D. Smith 2019}
+   \vspace{0pt}
+   
+   {\Large \hfill  Lecture 6. Energy Evaluation of Building Systems, Modeling Tools}
+   \vspace{5pt}
+   
+  
+   \hrulefill
+   \end{center}
+
+{\color{darkgray}{\center{ \small{      ``Systems thinkers use graphs of system behavior to understand trends over time, rather than focusing attention on individual events.''
+\\%[3pt]
+\rightline{{\rm --- Donella H. Meadows in \textit{Thinking in Systems} \cite{meadows}}}}}}}
+
+\section{Energy Evaluation of Building Systems}
+
+\subsection{Pre-Occupancy}
+
+\subsubsection{Integrated Design Process}
+
+In a conventional design process, the client and the architect will begin the design of a building or retrofit project, and the mechanical and electrical engineers may be brought into the process after many important decisions that affect the building's energy systems have already been made. Taking the systems perspective, where interrelationships and interconnections are key to understanding system behavior, the conventional design process can clearly lead to suboptimal decision making at the system and subsytem levels. As Larsson points out in a brief paper outlining the integrated design process, ``the resulting poor performance and high operating costs [resulting from a conventional design process] will most often come as a surprise to the owners, operators or users.'' \cite{larsson}
+
+An integrated design process, in contrast to the conventional design process, will bring energy evaluation into the design process as early as possible. A range of evaluation options, from simple spreadsheet calculations to fully parameterized whole building energy simulations, may be used at different stages during the design process. 
+
+\subsubsection{Commissioning}
+
+The Whole Building Design Guide published by the National Institute of Building Sciences defines \textbf{commissioning} (Cx) in this way:
+
+\begin{quote}
+  Building Commissioning is the professional practice that ensures buildings are delivered according to the Owner's Project Requirements (OPR). Buildings that are properly commissioned typically have fewer change orders, tend to be more energy efficient, and have lower operation and maintenance cost.   \cite{bldgcx}
+\end{quote}
+
+They also point out that commissioning is especially likely to yield benefits when buildings are complex  \cite{bldgcx}. Studies by U.S. national labs indicate significant savings potential from commissioning projects, with an LBNL researcher calling commissioning a ``stealth energy saving strategy'' and ``CSI for energy'' \cite{mills}.
+
+Commissioning a building is a formal practice and there are established guidelines and standards from ASHRAE for how to properly conduct a commissioning project. It may be undertaken to help the building owners obtain a performance rating like a LEED certification, in addition to potentially improved performance with lower costs. Commissioning is its own domain of expertise, with a unique body of knowledge and practices developed among the practitioners. They practitioners may be certified by a professional association like the Building Commissioning Association and are referred to as commissioning agents (CxA) or commissioning practitioners (CxP).
+
+\subsubsection{New Building Commissioning}
+
+Typically, when people talk about a commissioning project, they are referring to a process that is undertaken after the building is constructed but before it is occupied. This may not be a clear line--in 2014, I moved into my current office in MEK on the south hallway (Phase 1) while the north side and middle part of the first floor were still under construction (Phase 2).
+
+\subsection{Post-Occupancy}
+
+\subsubsection{Retrocommissioning}
+
+Retrocommissioners use many of the same tools and skillsets to commission buildings that are already in operation. The California Commissioning Guide for Existing Buildings describes the purpose of \textbf{retrocommissioning} this way:
+
+\begin{quote}
+    Retrocommissioning is a process that seeks to improve how building equipment and systems function together. \cite{cx-existing}
+\end{quote}
+
+If a building has already been through a formal commissioning process, people would typically refer to the subsequent commissioning as \textbf{recommissioning}.
+
+\subsubsection{Ongoing Commissioning}
+
+Maybe 20 years ago, the building energy community began a serious push for ongoing commissioning---meaning, in its broadest sense, a commissioning program that isn't limited to a (series of) site visit(s) or a defined window of time, but rather is designed to assess and impact the building or facility on a continuous basis.
+
+A useful ongoing commissioning program will include ``planning, point monitoring, system testing, performance verification, corrective action response, ongoing measurement, and documentation to proactively address operating problems in the systems being commissioned.'' \cite{noauthor_undated-jw} It must be integrated with the energy management program for the facility and requires buy-in from a larger group of stakeholders (i.e. anyone involved with operating the building day-to-day) than a new building or retrocommissioning project would require.
+
+Continuous Commissioning\textregistered is a term registered by the Texas A\&M Energy Systems Laboratory, who describe it this way:
+
+\begin{quote}
+    CC$^{\textregistered}$ is an ongoing process to resolve operating problems, improve comfort, and optimize energy use for existing commercial and institutional buildings and central plant facilities. \cite{noauthor_undated-gq}
+\end{quote}
+
+\subsection{Measurement \& Verification}
+
+The U.S. Department of Energy (DOE) has taken some leadership in pushing for established standards for evaluating programs designed to alter (hopefully decrease!) building energy use, particularly energy efficiency measures \cite{MandV}. In a 2015 report on \textbf{measurement \& verification (M\&V)} guidelines, they define it in this way:
+
+\begin{quote}
+M\&V is the process of quantifying the energy and cost savings resulting from improvements in energy-consuming systems. \cite{MandV}
+\end{quote}
+
+They also recognize that obtaining accurate, reliable, actionable M\&V information is a trade-off:
+
+\begin{quote}
+The challenge of M\&V is to balance M\&V costs with the value of increased certainty in the cost savings. \cite{MandV}
+\end{quote}
+
+They then frame the underlying concept as an equation:
+
+\begin{quote}
+  $ Savings = (Baseline  Energy - Post\-Installation  Energy) \pm Adjustments   $ \cite{MandV}  
+\end{quote}
+
+Energy \textbf{savings} are what we're after. The goals for the project should be quantified, meaning we'd like a picture of where we will end up.
+
+\textbf{Baseline} energy is the energy use associated with the unmodified building. It's like finding the blue dot on your Google Map to get your bearings before you start navigating. Responsible energy efficiency engineers will seek to establish a good baseline---that is, understanding the behavior of the current building as well as they can, and gathering data that will be appropriate to the evaluation they want to conduct.
+
+\textbf{Post-installation} energy is just what it sounds like---the energy use associated with the modified building. It's important to quantify this, ideally using the same type of data used to establish the baseline. It's also normal that more changes are made for a period of months after energy-consuming systems in a building have been changed.
+
+``Adjustments'' can be anything else that, according to engineering judgement, should be used to alter the quantified savings. This could mean adjusting for a change in the number (or schedule) of occupants in the building, for an increase in plug loads, or for weather differences during the periods of data collection. 
+
+\section{Modeling Tools for Building Energy Systems}
+
+% \subsection{Building Information Modeling}
+
+\subsection{Building Energy Modeling}
+
+A \textbf{building energy model} (BEM) generally refers to a computational representation of a single building or narrowly defined site that captures key features influencing energy performance. A building energy simulation program refers to the computational software that calculates energy use (and often other performance-related quantities like water use, emissions production, or operational costs). 
+
+On the DOE's Building Energy Modeling page, they introduce the topic this way:
+
+\begin{quote}
+    Whole-Building Energy Modeling (BEM) is a versatile, multipurpose tool that is used in new building and retrofit design, code compliance, green certification, qualification for tax credits and utility incentives, and real-time building control. \cite{doe-bem}
+\end{quote}
+
+You may also see the related term \textbf{building information model} (BIM), which refers to ``a digital [typically 3D] representation of physical and functional characteristics of a facility [that] serves as a shared knowledge resource for information about a facility forming a reliable basis for decisions during its life cycle.'' \cite{noauthor_undated-tr} Energy modeling capabilities are therefore a necessary part of any useful BIM.
+
+%Building energy modeling tools will be covered in more detail in several future lectures, so we won't describe them further at this point.
+
+\subsubsection{Multi-Building Energy Modeling}
+
+% Individual BEM simulation programs may have options for single building energy models to incorporate their connections with other buildings (e.g. using steam purchased from a district heating loop to provide heating).
+
+There is an interesting and fairly new development in the building energy simulation world, which is to go beyond single building energy models entirely, considering them as subsystems within a larger surrounding environment. This is made possible by increasing data availability and computing power, and falls under the larger (and not yet formally defined) heading of multiscale building energy modeling.
+
+There are a few key challenges that commonly appear in modeling a district, city, or region of buildings:
+\begin{itemize}
+\item Computational time and complexity
+\item Engineering labor to gather and process appropriate data
+\item Inadequate available data or heterogeneous data
+\end{itemize}
+
+Leaders in the emerging field of urban-scale BEM include Oak Ridge National Laboratory;  University College London; and Big Ladder Software, who have made part of their toolkit for creating templates for building energy models in a freely available framework called ModelKit \cite{modelkit}. %A regional emissions modeling platform called Hestia \cite{Gurney2012-hz} is now developed by Dr. Daniel Mendoza, a research professor in our Department of Atmospheric Sciences, who uses templates for building energy models that have been matched to property data for the Salt Lake Valley to determine the type of building(s) present and run eQuest models of a prototype that has the same general classification (see \cite{commercialprototype}).
+
+% license
+\bigskip
+
+\noindent
+\texttt{\footnotesize RESTRICTED PUBLIC LICENSE --- READ BEFORE SHARING. This is a draft version made available by Amanda D. Smith under a Creative Commons Attribution-NonCommercial-ShareAlike license. 
+\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}}
+
+% references
+\newpage
+\printbibliography
+
+\end{document}
