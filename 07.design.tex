@@ -1,0 +1,212 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{subfigure}
+\usepackage{stackrel}
+\usepackage{blindtext}
+\usepackage{scrextend}
+\addtokomafont{labelinglabel}{\sffamily}
+
+\usepackage{biblatex}
+\addbibresource{library.bib}
+
+\oddsidemargin=0.15in
+\evensidemargin=0.15in
+\topmargin=-.5in
+\textheight=9in
+\textwidth=6.25in
+
+\usepackage[colorlinks=true,breaklinks,pdfpagemode=none,linkcolor=blue,citecolor=blue]{hyperref}
+\usepackage{enumerate}
+
+%\usepackage{enumitem}
+%\setlist{itemsep=0mm}
+
+
+
+%\usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{epsfig}
+\usepackage{amsmath,amsfonts,amssymb,bm}
+%\usepackage{pst-grad} % For gradients
+%\usepackage{pst-plot} % For axes
+
+
+%% Enviroment definitions (add your own here)
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+
+\newenvironment{proof}{\noindent{\bf Proof}\hspace*{1em}}{\qed\bigskip}
+
+%% New commands (add your own here)
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\hv}{\hat{v}}
+\newcommand{\hL}{\hat{L}}
+\newcommand{\hlambda}{\hat{\lambda}}
+\newcommand{\homega}{\hat{\omega}}
+\newcommand{\hp}{\hat{p}}
+\newcommand{\hW}{\hat{W}}
+\newcommand{\cK}{\mathcal{K}}
+\newcommand{\qed}{\rule{7pt}{7pt}}
+\newcommand{\cF}{\mathcal{F}}
+
+\begin{document}
+
+   \noindent
+   \begin{center}
+
+   \hrulefill
+   
+   \vspace{5pt}
+   
+   \makebox[\textwidth]{ {\bf Energy Systems Analysis} \hfill  A.D. Smith 2019}
+   \vspace{0pt}
+   
+   {\Large \hfill  Lecture 7. Sustainable and Ecological Design}
+   \vspace{5pt}
+   
+  
+   \hrulefill
+   \end{center}
+   
+   {\color{darkgray}{\center{ \small{``Look around you: I mean it. Pause, for a moment and look around the room that you are in. I'm going to point out something so obvious that it tends to be forgotten. It's this: that everything you can see, including the walls, was, at some point, imagined. Someone decided it was easier to sit on a chair than on the ground and imagined the chair. Someone had to imagine a way that I could talk to you in London right now without us all getting rained on. This room and the things in it, and all the other things in this building, this city, exist because, over and over and over, people imagined things.''
+\\%[3pt]
+\rightline{{\rm --- Neil Gaiman \cite{gaiman-reading}}}}}}}
+   
+\section{Mechanical design for buildings}
+
+Let's first look at the major components of a building design process. These apply whether we are beginning the design of a brand new large commercial facility or simply considering a minor change to the structure or operation of a small residence. Grondzik and Kwok divide the process into these pieces \cite{Grondzik2014-gt}:
+
+\begin{enumerate}
+    \item \textit{Design intent}, e.g. ``The building will provide oustanding comfort for its occupants.''
+    \item \textit{Design criteria}, e.g. ``Thermal conditions will meet the requirements of ASHRAE Standard 55.''
+    \item \textit{Methods and tools}, e.g. design guide or building energy model
+\item \textit{Validation and evaluation}, e.g. M\&V (as in Lecture 6).
+\item \textit{Other influences on the design process}, including:
+        \begin{itemize}
+            \item Codes and standards
+            \item Costs (first costs and operating costs)
+            \item Energy efficiency or Net Zero requirements
+        \end{itemize}
+\end{enumerate}
+
+
+\section{What is sustainable design?}
+
+{\color{darkgray}{\center{ \small{``We have an obligation to make things beautiful. Not to leave the world uglier than we found it, not to empty the oceans, not to leave our problems for the next generation. We have an obligation to clean up after ourselves, and not leave our children with a world we've shortsightedly \\messed up, shortchanged, and crippled.''
+\\%[3pt]
+\rightline{{\rm --- Neil Gaiman \cite{gaiman-reading}}}}}}}
+
+\medskip
+
+Sustainable design usually means that goal of the design encompasses the Brundtland report \cite{bruntland} definition of sustainable development. We first saw this in Lecture 1. Grondzik and Kwok describe this as design that ``involves meeting the needs of today's generation
+without detracting from the ability of future generations
+to meet their needs.'' \cite{Grondzik2014-gt}
+
+There is also a newer term called \textbf{regenerative} design, which means the goal of the design is ``to produce a net positive environmental
+impact---to leave the world better off with respect to
+energy, water, and materials.'' \cite{Grondzik2014-gt} The Living Building Challenge is a performance standard for buildings that provides a framework for regenerative design \cite{noauthor_2016-ep}.
+
+
+%Section 1.7\cite{Grondzik2014-gt}
+
+\section{What is ecological design?}
+
+{\color{darkgray}{\center{ \small{``Until our everyday activities preserve ecological integrity \textit{by design}, their cumulative impact will continue to be devastating.''
+\\%[3pt]
+\rightline{{\rm --- Van der Ryn and Cowan \cite{Van_der_Ryn2013-by}}}}}}}
+
+\medskip
+
+Ecological design means that the designer is concerned with, and has some understanding of, ecology. Our next guest speaker, Prof. Sarah Hinners, is trained as an ecologist and teaches urban planning (or `ecological planning`---see below).  Van der Ryn and Cowan have a broad definition of ecological design:
+\begin{labeling}{alligator}
+\item [\textbf{ecological design}] ``any form of design that minimizes environmentally destructive impacts by integrating itself with living processes'' \cite{Van_der_Ryn2013-by}
+\end{labeling}
+
+\subsection{But what is ecology?}
+
+Ecology, because it is a discipline focused on complex systems, can be difficult to grasp when approaching from another discipline. The key pieces that comprise the study of ecology are organisms (anything from a single-cell bacteria to us), environments, and relationships or interactions between these. 
+
+I'm also noting here a few other related terms that you may encounter when considering ecological design within the built environment.
+
+\begin{labeling}{alligator}
+\item [\textbf{ecology}] ``a branch of science concerned with the interrelationship of organisms and their environments'' \cite{noauthor_undated-yl}
+\item [\textbf{ecosystem services}] ``positive benefit[s] that wildlife or ecosystems provide to people'' \cite{noauthor_undated-xo}
+\item [\textbf{ecological planning}] ``planning in harmony with social, economic, and environmental systems to enhance the health and well-being of places and communities'' \cite{noauthor_undated-lq}
+\item [\textbf{urban ecology}] a field that ``helps communities understand the complexity of issues that affect daily quality of life as well as the long-term health of the environment'' and focuses on ``exploring the interrelationships among social, environmental and economic systems, with an aim toward enhancing the vitality and sustainability of places and communities.'' \cite{noauthor_undated-qo}
+\end{labeling}
+
+\section{A set of sustainable building design principles (Grondzik and Kwok, adapted from Lyle)}
+
+% {\color{darkgray}{\center{ \small{``Better before more''
+% \\%[3pt]
+% \rightline{{\rm --- Grondzik and Kwok \cite{Grondzik2014-gt}}}}}}}
+
+Before we jump in, let's note that a \textbf{site analysis} should happen before any serious building designing goes on. This helps us ``understand the character of a given site \cite{Grondzik2014-gt}'' by understanding its existing ecological systems and flows, local climate, solar exposure, local climate, zoning or other political requirements, and more. 
+
+The site may be providing valuable ecosystem services to the surrounding land; if these are irreplaceable, why build? If it's a reasonable place to build, are there specific limitations or challenges that we need to understand to inform how and what we build?
+
+Grondzik and Kwok adapted these principles from John Lyle as shown below \cite{Grondzik2014-gt}. Each principle is taken directly from their book, although I have combined principles in a couple of instances. My commentary follows below each principle.
+
+\begin{enumerate}
+    \item Let Nature Do the Work; Consider Nature As Both Model and Context\\
+    This is described as indicating a preference for ``passive processes over active/mechanical processes'', but could more broadly imply a respect for nature and a reluctance to overdesign when a simple or nature-inspired technology will do.
+
+      \item Aggregate Rather Than Isolate\\ Be aware that subsystems, in aggregate, can make up complex systems and consider the interactions of different parts of the building throughout the design process.
+      \item Match Technology to the Need\\ One might simply argue that this is the basis of any reasonable technical design at all. Here, it implies that the function of each technology chosen satisfies the design intent and criteria, and that simpler technologies are preferable when they satisfy the appropriate need(s).
+     
+      \item Seek Common Solutions to Disparate Problems\\ Building on the point above, solutions that can provide multiple features or benefits for the building are highly desirable. It helps to have a multi-disciplinary design team filled with curious, creative systems thinkers.
+      \item Shape the Form to Guide the Flow; Shape the Form to Manifest the Process\\ The shape of the building itself can direct things (fluids, people, light) in a way that provides sustainability benefits and meets design goals. Ideally, a building will be understandable to its users---for example, the function of visible equipment will be apparent. The work of mechanical engineer Adrian Bejan \cite{Bejan2013-jz} provides many areas for applying this concept in depth.
+      \item Use Information to Replace Power\\ A deep understanding of building science, client needs, occupant behavior, and site ecology will allow the designer to meet design goals more efficiently and effectively than simply adding more equipment.
+      \item Provide Multiple Pathways\\ Think through where your design could fail in critical ways and use redundancy.
+      \item Manage Storage\\ Look at how needs and resources will be distributed through time and space. Be aware that the building itself has \textbf{thermal mass}, and understand its energy storage characteristics as best you can to help provide consistent conditioning.
+\end{enumerate}
+
+\section{A set of eco-minimalism principles (Grant)}
+
+{\color{darkgray}{\center{ \small{``I'm rather partial to high technology, but I try to remember to oppose inappropriate or unnecessary technology.''
+\\%[3pt]
+\rightline{{\rm --- Nick Grant \cite{Grant2007-yc}}}}}}}
+
+\medskip
+
+
+Grant presents a set of eco-minimalism principles that are applied to building design in the essay cited here \cite{Grant2007-yc}, but could be applied to any problem on which design skills, engineering analysis, and imagination can be brought to bear. They are, aptly, quite minimal, providing simple guidance for bringing eco-awareness to technical design. Again, my commentary follows below each principle.
+
+\begin{enumerate}
+    \item Question\\ Be skeptical. Ask bigger questions. Make sure you're trying to solve the problem you should be trying to solve.
+      \item Reduce\\ Seek simpler solutions and look for opportunities to reduce complexity.
+      \item Order\\ Arrange structures in a way that supports design goals. Remove clutter and organize what remains in a logical way.
+      \item Model\\ Use models to compare potential solutions with each other and to test the predictions of your imagination/intuition.
+      \item Monitor\\ Find the ground truth and check your prediction. Where were you wrong and why? He calls this ``closing the gap between theory and reality.'' \cite{Grant2007-yc}
+\end{enumerate}
+
+
+% license
+\bigskip
+
+\noindent
+\texttt{\footnotesize RESTRICTED PUBLIC LICENSE --- READ BEFORE SHARING. This is a draft version made available by Amanda D. Smith under a Creative Commons Attribution-NonCommercial-ShareAlike license. 
+\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}}
+
+
+\printbibliography
+
+\end{document}
