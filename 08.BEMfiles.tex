@@ -95,13 +95,32 @@
 
 An EnergyPlus main input file is a human-readable text file with the suffix \textbf{\textit{.idf} (for Input Data File)}. It describes the characteristics of the building, its HVAC system, and its surroundings to a limited extent. This information is the basis for the implementation of equations representing the physics in the simulation, but does not provide a 3-D representation of how everything is arranged. 
 
-The most straightforward, least glamorous way to interact with an IDF file is through the IDF Editor, ``a simple, `intelligent' editor that reads the EnergyPlus Data Dictionary (IDD) and allows creation/revision of EnergyPlus Input Files.'' \cite{EP9docs} The IDD is a file that tells EnergyPlus what is allowable and what to expect with the IDF file it will be reading. The IDF editor is only available for the Windows platform. You can also open the IDF with any text editor as it is simply a standard ASCII text file, and most interfaces built on the EnergyPlus engine will just modify the IDF behind the scenes according to your commands.
+% EnergyPlus has a standard set of SI units that are internally used for calculations, although you can ask for output in IP units. Depending on the interface you use, you may be able to enter your data in IP units as well.
 
-Each item within the IDF file that has data associated with it is called an \textbf{object}.  A group of related objects forms a \textbf{class}. Comments follow exclamation points. 
+The most straightforward, least glamorous way to interact with an IDF file is through the IDF Editor (Figure \ref{IDFeditor}), ``a simple, `intelligent' editor that reads the EnergyPlus Data Dictionary (IDD) and allows creation/revision of EnergyPlus Input Files.'' \cite{EP9docs} The IDF Editor is accessed through the EP Launch program (Figure \ref{EPlaunch}), only available for the Windows Platform.
 
-EnergyPlus has a standard set of SI units that are internally used for calculations, although you can ask for output in IP units. Depending on the interface you use, you may be able to enter your data in IP units as well.
+            \begin{figure}[h]
+            \centering
+            \includegraphics[width=5in]{extras08/IDFediting.png}
+            \caption{IDF Editor in action \cite{EP9docs}}
+            \label{IDFeditor}
+            \end{figure}
 
-We will take a look at the IDF files as we learn to run simulations over the next couple of weeks, discover their typical structure, and try to decipher what inputs are affecting what simulation outcomes.
+
+ You can also open the IDF with any text editor as it is simply a standard ASCII text file, and most interfaces built on the EnergyPlus engine will just modify the IDF behind the scenes according to your commands. Each item within the IDF file that has data associated with it is called an \textbf{object}.  A group of related objects forms a \textbf{class}. Comments follow exclamation points. 
+
+The \textbf{Input Data Dictionary (IDD)} is a file that tells EnergyPlus what is allowable and what to expect with the IDF file it will be reading. Refer to ``IDD Conventions'' in the Input-Output Reference document \cite{EP9docs} for a description of what the IDD should look like. Although it is a critical input file, we will not modify the IDD files in our class, instead using existing IDD files and working within the structure they provide for how we present data to the EnergyPlus engine. 
+
+For a given simulation, the two key input files we will focus on will be IDF and EPW files, described in the next section. We will stop to take a look at the contents of the IDF files as we learn to run simulations over the next couple of weeks. Even if you don't directly modify the IDF file in practice, it will help your understanding of the EnergyPlus BEM process for you to discover their typical structure, and try to decipher what inputs are affecting what simulation outcomes based on what EnergyPlus is actually reading from the input files.
+
+            \begin{figure}[h]
+            \centering
+            \includegraphics[width=5in]{extras08/EPinterface.png}
+            \caption{EP Launch Program \cite{Bianchi-dissertation}}
+            \label{EPlaunch}
+            \end{figure}
+
+
 
 
 \section{Weather files}
@@ -155,18 +174,21 @@ The TMY files are designed to illustrate what a building's performance might be,
 Because TMYs represent typical rather than extreme conditions, they are not suited for designing systems to meet the worst-case conditions occurring at a location. \cite{tmy-nsrdb}
 \end{quote}
 
-A TMY file is not necessarily provided in EPW format, as TMY files do exist for other applications. However, when you download EPW files from the EnergyPlus website \cite{EPweather}, they will be TMY files in EPW format. It's also important to note that the observed data generally come from the airport nearest to the named city, which may not be well correlated with the weather data in the urban center. Take a look at weather observations from DarkSky \cite{DarkSky} or MesoWest \cite{MesoWest} right now--can you find a downtown station and one at SLC airport? How different are their readings?
+A TMY file is not necessarily provided in EPW format, as TMY files do exist for other applications. We will download EPW files from the EnergyPlus website \cite{EPweather}, which are TMY weather data in the form of EPW files, ready for use in EnergyPlus building energy simulations. You may see options for TMY, TMY2 or TMY3 data. TMY3 data sets are the most recent, derived from 1991--2005 weather, and provide more geographic locations than previous TMY versions \cite{TMY3user}.  TMY2 data sets are less recent, based on  1961--1990 weather \cite{TMY2user}, but still widely used.  The original TMY data sets were produced using 1952--1975 weather \cite{TMY3user}. TMY3 will be our preferred type of TMY data.
+
+It's also important to note that the observed data usually come from the airport nearest to the named city, which may not be well correlated with the weather data in the urban center. Take a look at weather observations from DarkSky \cite{DarkSky} or MesoWest \cite{MesoWest} right now--can you find a downtown station and one at SLC airport? How different are their readings?
 
 \subsection{AMY}
 
-An \textbf{actual meteorological year (AMY)} is simply the actual weather detected in a given place during a historical year. For building model \textbf{calibration}, which involves comparing model output to actual performance data, an AMY weather file is necessary.
+An \textbf{actual meteorological year (AMY)} is simply the actual weather detected in a given place during a historical year. For building model \textbf{calibration}, which involves comparing model output to actual performance data, an AMY weather file is necessary. There are companies that sell AMY files using historical weather data that has been processed into the EPW format \cite{noauthor_undated-vj}. We also now have an open source solution, described below.
 
 \subsubsection{Localized AMY File Creator}
 
+NREL engineer and former Site-Specific Energy Systems Lab researcher Dr. Carlo Bianchi created a weather file converter to take MesoWest \cite{MesoWest} observed weather data and present it in the EnergyPlus--friendly EPW format, ready for use in EnergyPlus building energy simulations.
 
-NREL engineer and former Site-Specific Energy Systems Lab \cite{SSESlab} researcher Dr. Carlo Bianchi \cite{CarloGS} created a weather file converter using Python to take MesoWest \cite{MesoWest} observed weather data and present it in the EnergyPlus--friendly EPW format.
+Download and install the LAF app for your platform at \url{https://energysystems.mech.utah.edu/laf/}. You can also grab the Python code directly at \url{https://github.com/sseslab/laf/}.
 
-Download and install the LAF app for your platform at \url{https://energysystems.mech.utah.edu/laf/}. You can also grab the Python code at \url{https://github.com/sseslab/laf/}.
+This software is our first release of the weather file creator. The next version is in progress and your feedback is appreciated.
 
 % license
 \bigskip
@@ -176,7 +198,7 @@ Download and install the LAF app for your platform at \url{https://energysystems
 \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}}
 
 % references
-\newpage
+
 \printbibliography
 
 \end{document}
