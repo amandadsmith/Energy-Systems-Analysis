@@ -15,7 +15,7 @@
 \usepackage{stackrel}
 \usepackage{blindtext}
 
-\usepackage{biblatex}
+\usepackage[url=false]{biblatex}
 \addbibresource{library.bib}
 
 \oddsidemargin=0.15in
@@ -30,6 +30,11 @@
 \usepackage{enumitem}
 \setlist{itemsep=0mm}
 
+\newenvironment{itemize*}%
+  {\begin{itemize}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}}%
+  {\end{itemize}}
 
 
 %\usepackage[usenames,dvipsnames]{pstricks}
@@ -132,6 +137,8 @@ An EnergyPlus weather file is a human-readable csv text file with the suffix \te
 
 The following variables are included:
 \begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
     \item Dry Bulb Temperature
     \item Dew Point Temperature
     \item  Relative Humidity
@@ -150,6 +157,8 @@ Refer to EnergyPlus documentation, Auxiliary Programs section for details \cite{
 
 Some buildings are more 'weather driven' than others, for reasons you might guess, such as: 
 \begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
     \item high \textbf{skin ratio} (surface area-to-volume ratio for the building envelope),
     \item high \textbf{window-to-wall ratio},
     \item low insulation values (small U values),
@@ -176,19 +185,17 @@ Because TMYs represent typical rather than extreme conditions, they are not suit
 
 A TMY file is not necessarily provided in EPW format, as TMY files do exist for other applications. We will download EPW files from the EnergyPlus website \cite{EPweather}, which are TMY weather data in the form of EPW files, ready for use in EnergyPlus building energy simulations. You may see options for TMY, TMY2 or TMY3 data. TMY3 data sets are the most recent, derived from 1991--2005 weather, and provide more geographic locations than previous TMY versions \cite{TMY3user}.  TMY2 data sets are less recent, based on  1961--1990 weather \cite{TMY2user}, but still widely used.  The original TMY data sets were produced using 1952--1975 weather \cite{TMY3user}. TMY3 will be our preferred type of TMY data.
 
-It's also important to note that the observed data usually come from the airport nearest to the named city, which may not be well correlated with the weather data in the urban center. Take a look at weather observations from DarkSky \cite{DarkSky} or MesoWest \cite{MesoWest} right now--can you find a downtown station and one at SLC airport? How different are their readings?
+It's also important to note that the observed data usually come from the airport nearest to the named city, which may not be well correlated with the weather data in the urban center \cite{Carlo1}. Take a look at weather observations from DarkSky \cite{DarkSky} or MesoWest \cite{MesoWest} right now--can you find a downtown station and one at SLC airport? How different are their readings?
 
 \subsection{AMY}
 
 An \textbf{actual meteorological year (AMY)} is simply the actual weather detected in a given place during a historical year. For building model \textbf{calibration}, which involves comparing model output to actual performance data, an AMY weather file is necessary. There are companies that sell AMY files using historical weather data that has been processed into the EPW format \cite{noauthor_undated-vj}. We also now have an open source solution, described below.
 
-\subsubsection{Localized AMY File Creator}
+\subsubsection{Localized AMY File Creator (LAF)}
 
-NREL engineer and former Site-Specific Energy Systems Lab researcher Dr. Carlo Bianchi created a weather file converter to take MesoWest \cite{MesoWest} observed weather data and present it in the EnergyPlus--friendly EPW format, ready for use in EnergyPlus building energy simulations.
+NREL engineer and former Site-Specific Energy Systems Lab researcher Dr. Carlo Bianchi created a weather file converter to take MesoWest \cite{MesoWest} observed weather data and present it in the EnergyPlus--friendly EPW format, ready for use in EnergyPlus building energy simulations. This software is our first release of the weather file creator.
 
-Download and install the LAF app for your platform at \url{https://energysystems.mech.utah.edu/laf/}. You can also grab the Python code directly at \url{https://github.com/sseslab/laf/}.
-
-This software is our first release of the weather file creator. The next version is in progress and your feedback is appreciated.
+Download and install the LAF app for your platform at \url{https://energysystems.mech.utah.edu/laf/}. You can also grab the Python code directly at \url{https://github.com/sseslab/laf/}.  We're working on the next version of LAF and your feedback is appreciated.
 
 % license
 \bigskip
