@@ -169,7 +169,7 @@ Some buildings are more 'weather driven' than others, for reasons you might gues
 
 The types of HVAC systems that condition the building and their efficiencies and maintenance schedules will also affect how much a building is affected by hot, cold, or changing weather conditions outside. There is also simulation-based evidence that buildings in cold climates are more affected by weather than those in warm climates \cite{Hong2013-ti}.
 
-\subsection{TMY}
+\subsection{Typical Meteorological Years}
 
 The \textbf{typical meteorological year (TMY)} is a conceptual ``representative'' weather year for a given location. 
 
@@ -177,7 +177,7 @@ The \textbf{typical meteorological year (TMY)} is a conceptual ``representative'
 To calculate a TMY, a multiyear data set is analyzed and 12 months are chosen from that time frame that best represent typical conditions. \cite{tmy-nsrdb}
 \end{quote}
 
-The TMY files are designed to illustrate what a building's performance might be, on average, in a certain climate. While they are compiled using statistical techniques starting with actual observed weather data, they don't represent any given consecutive period in historical time. By definition, they don't capture unusual weather patterns, which leads to an important cautionary note:
+The TMY files are designed to illustrate what a building's performance might be, on average, in a certain climate. While they are compiled using statistical techniques starting with actual observed weather data, they don't represent any given consecutive yearlong period in historical time. By definition, they don't capture unusual weather patterns, which leads to an important cautionary note:
 
 \begin{quote}
 Because TMYs represent typical rather than extreme conditions, they are not suited for designing systems to meet the worst-case conditions occurring at a location. \cite{tmy-nsrdb}
@@ -187,7 +187,7 @@ A TMY file is not necessarily provided in EPW format, as TMY files do exist for 
 
 It's also important to note that the observed data usually come from the airport nearest to the named city, which may not be well correlated with the weather data in the urban center \cite{Carlo1}. Take a look at weather observations from DarkSky \cite{DarkSky} or MesoWest \cite{MesoWest} right now--can you find a downtown station and one at SLC airport? How different are their readings?
 
-\subsection{AMY}
+\subsection{Actual Meteorological Years}
 
 An \textbf{actual meteorological year (AMY)} is simply the actual weather detected in a given place during a historical year. For building model \textbf{calibration}, which involves comparing model output to actual performance data, an AMY weather file is necessary. There are companies that sell AMY files using historical weather data that has been processed into the EPW format \cite{noauthor_undated-vj}. We also now have an open source solution, described below.
 
