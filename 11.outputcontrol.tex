@@ -86,31 +86,137 @@
    \hrulefill
    \end{center}
 
-{\center{ \small{      ``Patterns extracted from building historic data and simulation data provide a deep insight into the way building occupants consume energy.''
+{\center{ \small{      ``Patterns extracted from building historic data and simulation data provide deep insight into the way building occupants consume energy.''
 \\%[3pt]
 \rightline{{\rm --- Yu, Haghighatb, and Fung \cite{Yu2016-nl}}}}}}
 
-Keywords:
+\section{Variables}
 
-Report
-Report Variable
-Report Meter
+Variables within EnergyPlus work like variables in any computational simulation: they store information as the simulation progresses and can be used to ``report'' this information back to the user in different ways (like summary reports that are shown to you or files that are placed in the simulation directory). If you want to know what variables are available for a given simulated building, you go to the \textit{eplusout.rdd} file (Section \ref{files}).
 
+\begin{quote}
+Variables available, to some extent, depend on the simulation input. Variables are `set up' during the initial `get input' processing done within the modules. Therefore, an item that is specific to a certain type of coil would not be available if that coil were not used during the simulation
+
+\ldots
+
+There are two flavors to output variables: ZONE or HVAC. ZONE does not mean that it is a zone variable -- rather, it is produced at the Zone Time Step\ldots HVAC type variables, likewise, are produced at the HVAC [or system] timestep. \cite{EP9docs}
+\end{quote}
+
+
+Although the default time step for providing variables is the zone time step, we may be able to inspect what's happening at the system time step for variables where that is relevant: ``Report variables that
+use the `detailed' frequency show results at the system time step time scale.'' \cite{EPdocs9engineering}
 
 \section{Meters}
 
+Just like a physical meter that tracks energy use in a real building, an EnergyPlus meter is keeping track of how much energy is used over given intervals within the simulation. If you want to know what meters are available for a given simulated building, you go to the \textit{eplusout.mtd} file (Section \ref{files}).
+
+\begin{quote}
+Appropriate variables are grouped onto `meters' for reporting purposes.\ldots If the `Output:Meter' input object
+is used, these results written out to both the eplusout.eso and eplusout.mtr files. This allows easy
+graphing and comparison with ``normal'' values (such as Zone Temperature or Outdoor Temperature). \cite{EPdocs9inputoutput}
+\end{quote}
 
 
 
-\section{Summaries}
+Broadly speaking, there are two ways meter variables would typically be reported:
 
-\subsection{EnergyPlus Annual Building Utility Performance Summary}
+\vspace{-2pt}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \item Metered variable is reported at the time step interval requested.
+    \item A cumulative value for that variable up to that point in the simulation is reported.
+\end{itemize}
+\vspace{-4pt}
 
-\subsection{OpenStudio Results}
+We could request output in more specific ways---see Input-Output Reference for details \cite{EPdocs9inputoutput}. 
+
+The Input-Output reference also has tables in the sections on Output:Meter and 
+Output:Meter:Cumulative that illustrate what types of metered resources (e.g. electricity gas), end uses (e.g. interior lights, exterior lights), and overall meter types (facility or zone) can be provided \cite{EPdocs9inputoutput}, given that the resource or end use is appropriate to your simulated building.
+
+\section{EnergyPlus Annual Building Utility Performance Summary}
+
+The \textbf{Annual Building Utility Performance Summary (ABUPS)} is a high-level quick look at the overall performance resulting from a given simulated building. It ``produces a report that is an overall summary of the utility consumption
+of the building'' and consists of a set of tables: \cite{EPdocs9inputoutput}
+
+\vspace{-2pt}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \item Site and Source Energy
+    \item Building Area
+    \item End Uses
+    \item End Uses By Subcategory
+    \item Utility Use Per Conditioned Floor Area
+    \item Utility Use Per Total Floor Area
+    \item Electric Loads Satisfied
+    \item On-Site Thermal Sources
+    \item Water Source Summary
+    \item Setpoint Not Met Criteria
+    \item Comfort and Setpoint Not Met Summary (These are your `unmet hours.')
+\end{itemize}
+\vspace{-4pt}
+
+
+\section{Viewer}
+
+OpenStudio has a built in tool for visualization and custom reports called \textbf{DView} that you can open from the Results Summary tab. It offers you the option to view results in I-P (English) units---this is a convenient post-processing feature, but remember that EnergyPlus internally holds values in SI units and we're just asking for them to be converted before they're presented. You can choose items to display on a time series graph, and you can right click on your graphs and select ``Save to csv'' to get a spreadsheet file that can be imported into  Excel, Google Sheets, Python, Matlab, or whatever post-processing platform you like.
+
+\section{Files}
+\label{files}
+
+These are most of the files that result from a simulation. You will find them in the same directory on your computer where you ran the model from; remember to move them out if you plan to change the model and run it again and you need to have your old results. 
+
+Most of the files listed here are just text files, but you may have to tell your computer to use a text editor to open them since they don't have a \textit{.txt} suffix. I like to use Atom because you can download a package from Big Ladder Software that will recognize the structure of EnergyPlus IDF objects  \cite{language-energyplus}, but you can use any text editor you're familiar with, or you may choose to find or build your own tools to help you use these files.
+
+\begin{description}
+\item[eplusout.audit] ``Echo of input''\\ Gives you a high-level audit of what went into the simulation (e.g. number of report variables, number of node connections). \cite{EPdocs9inputoutput}
+\item[eplusout.eio] ``One time output file'' \cite{EPdocs9inputoutput}\\ You can check things like your minimum system timestep or whether zone sizing was performed. 
+\item[eplusout.err] ``Error file''\cite{EPdocs9inputoutput} \\You'll see warnings and errors and some information about them (e.g. what EnergyPlus object was involved in the error). The levels of error you may see are, in order of severity:
+
+\vspace{-6pt}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \item Warning
+    \item Severe
+    \item Fatal (why the simulation stopped).
+\end{itemize}
+\vspace{-6pt}
+
+\item[eplusout.eso] ``Standard Output File (contains results from both Output:Variable
+and Output:Meter objects)'' \cite{EPdocs9inputoutput}
+\item[eplusout.mdd] Display of meter variables \cite{EPdocs9inputoutput}\\ You can open this one like a \textit{.csv} file.
+\item[eplusout.mtd] ``Meter details report -- what variables are on what meters and vice
+versa.'' \cite{EPdocs9inputoutput}
+\item[eplusout.mtr] ``Similar to .eso but only has Meter outputs'' \cite{EPdocs9inputoutput}
+\item[eplusout.rdd] Display of regular variables \cite{EPdocs9inputoutput}\\ You can open this one like a \textit{.csv} file.
+\item[eplusout.sql] ``A time series database of simulation results used by plotting software like DView.'' \cite{OpenStudio-book}
+\item[eplustbl.htm] Contains the ABUPS report, followed by a table of contents that links to a bunch of different reports that have tables summarizing things from the simulation.\\ This one will open in a browser like a webpage.
+\item[eplusssz.csv] ``Results from the System Sizing object with extension noted by the
+Sizing Style object. This file is `spreadsheet' ready.'' \cite{EPdocs9inputoutput}
+\item[epluszsz.csv] ``Results from the Zone Sizing object with extension noted by the
+Sizing Style object. This file is `spreadsheet' ready.'' \cite{EPdocs9inputoutput}
+\item[in.idf] Input Data File.\\ This is the input for an EnergyPlus simulation, but you will also receive it after running your OpenStudio model. It's provided so that when OpenStudio translates what you want into EnergyPlus-speak, you can check it and see exactly what the EnergyPlus engine saw.
+\item[in.osm] OpenStudio Model.\\ This is the input for running an OpenStudio model (which, of course, involves an EnergyPlus simulation). Technically it is ``the final OpenStudio Model prior to calling EnergyPlus.'' \cite{OpenStudio-book} You may interact only with the OpenStudio interface and never see the text of the model, but the OSM is an ASCII text file similar to an IDF that shows you exactly what OpenStudio is seeing.
+\item[stdout-energyplus] Shows what happened in the simulation.
+
+
+
+
+
+\end{description}
+
+
+% \section{Calibration}
+
+
+
 
 \section{Reporting Measures}
 
-\section{Calibration}
+Reporting measures ``generate reports on the input and output of a given energy model'' \cite{noauthor_undated-ma}. These measures are designed to provide output that will help you understand what went into the simulation or show more detail about the simulation result.
+
 
 
 % license
