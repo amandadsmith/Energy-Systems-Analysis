@@ -82,7 +82,7 @@
 
 Both passive (e.g. insulation) and active (e.g. air distribution) systems within the building contribute to the general conditions of thermal comfort that are sensed by the occupants.
 
-If you've ever lived (or even gone on a road trip) with someone who preferred temperatures a lot warmer or cooler than you do, you're instinctively aware that different people perceive thermal comfort differently. However, there are some generalizations we can make about how comfortable we would expect a population to be under a certain set of thermal conditions. Simply put:
+If you've ever lived (or even gone on a road trip) with someone who preferred temperatures a lot warmer or cooler than you do, you're instinctively aware that different people perceive thermal comfort differently. However, there are some reasonable generalizations we can make about how comfortable we would expect a population to be under a certain set of thermal conditions. Simply put:
 
 \begin{quote}
     Thin clothing and warm air is equivalent to warm clothing and cool air, in terms of the resulting effect on both performance and thermal comfort. \cite{Wargocki2017-ny}
@@ -108,11 +108,11 @@ There are six key variables that influence the thermal comfort of an occupant:
 
 The first four are \textit{environmental variables}, relating to the occupant's environment. In an air conditioned building, these are controlled for directly (usually 1 and 2) or indirectly (3 and 4, which are a result of the passive and active components of building design and operation). 
 
-You may not have heard of \textbf{mean radiant temperature}, which is measurement that incorporates radiation heat transfer to indicate ``how much cooling (or warming) you get from the exchange of radiant heat to all the objects in the room'' \cite{noauthor_undated-kj}. For a more technical but brief description, see the Designing Buildings Wiki page: \url{https://www.designingbuildings.co.uk/wiki/Mean_radiant_temperature}.
+You may not have heard of \textbf{mean radiant temperature}, which is measurement that incorporates radiation heat transfer to indicate ``how much cooling (or warming) you get from the exchange of radiant heat to all the objects in the room'' \cite{noauthor_undated-kj}. For a brief but more technical description, see the Designing Buildings Wiki page: \url{https://www.designingbuildings.co.uk/wiki/Mean_radiant_temperature}.
 
 Each person is different in terms of their metabolic rate, which determines how much heat they generate (and reject to their surroundings) as a result of a given activity. Cultural expectations and personal preferences also determine a person's subjective experience of comfort in a given thermal environment. 
 
-In addition to differences between individuals experiencing the same thermal conditions, conditions can vary even within a thermal zone. Although EnergyPlus has defined a thermal zone as ``a volume of air at a uniform temperature'' (Lecture 12), and will simulate it as such, it is not possible in a real building to keep variables 1--4 perfectly constant throughout a defined area. If the building has been zoned thoughtfully and designed and controlled well, the thermal environment within a zone will be much more similar to other locations within that zone that it is to locations in other thermal zones.
+In addition to differences between individuals experiencing the same thermal conditions, conditions can vary even within a thermal zone. Although EnergyPlus has defined a thermal zone as ``a volume of air at a uniform temperature'' (Lecture 12), and will simulate it as such, it is not possible in a real building to keep variables 1--4 perfectly constant throughout a defined area. If the building has been zoned thoughtfully and designed and controlled well, the thermal environment within a zone will be much more similar to other locations within that zone than it is to locations in other thermal zones.
 
 The last two are \textit{personal variables}, relating to the occupant.
 Your physiological metabolic rate drives heat transfer away from the body (unless you're somewhere extremely hot!), but is not something you can immediately control for, or even measure accurately without significant equipment and inconvenience. Your clothing level (i.e. thermal insulation) and activity level (i.e. driving rate for heat generation) can change from day to day or even throughout the day.
@@ -135,7 +135,7 @@ The \textbf{predicted mean vote (PMV)} index gives a statistical prediction of h
 \item[3] Hot
 \end{description}
 
-A negative PMV would indicate that more occupants found the space to be cool that warm; a positive PMV would indicate that more occupants found the space to be warm than cool. A PMV of zero would indicate that, on average, the votes for coolness or warmness were equal, although no information is provided about the spread of the data, so that many people could still be dissatisfied even when the PMV is `neutral.'
+A negative PMV would indicate that more occupants found the space to be cool than warm; a positive PMV would indicate that more occupants found the space to be warm than cool. A PMV of zero would indicate that, on average, the votes for coolness or warmness were equal, although no information is directly provided about the spread of the data, so that many people could still be dissatisfied even when the PMV is technically `neutral.'
 
 
 \subsection{Percentage of People Dissatisfied}
@@ -193,7 +193,7 @@ The WELL v2 Building Standard is accessible online, currently as a pilot version
     \item Community
 \end{itemize}
 
-Notice that Air, Light, Thermal Comfort, and Sound are paraphrased versions of the traditional four aspects of IEQ. This particular standard goes beyond these concerns and also addresses within the built environment \cite{noauthor_undated-tn}:
+Notice that Thermal Comfort, Air, Light, and Sound are paraphrased versions of the traditional four aspects of IEQ listed in the previous section. This particular standard goes beyond this list of concerns and also addresses these concerns within the built environment \cite{noauthor_undated-tn}:
 
 \vspace{-6pt}
 \begin{itemize}
