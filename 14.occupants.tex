@@ -1,0 +1,223 @@
+% 2019-02-13
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=6.5in]{folder/photo.png}
+% \caption{}
+% \label{}
+% \end{figure}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{subfigure}
+\usepackage{stackrel}
+\usepackage{blindtext}
+
+\usepackage[url=false]{biblatex}
+\addbibresource{library.bib}
+
+\oddsidemargin=0.15in
+\evensidemargin=0.15in
+\topmargin=-.5in
+\textheight=9in
+\textwidth=6.25in
+
+\usepackage[colorlinks=true,breaklinks,pdfpagemode=none,linkcolor=blue,citecolor=blue]{hyperref}
+
+\usepackage{enumerate}
+% \vspace{-6pt}
+% \begin{itemize}
+%     \setlength{\itemsep}{0pt}%
+%     \setlength{\parskip}{0pt}%
+%     \item Item 1
+%     \item Item 2
+%         \begin{itemize}
+%             \setlength{\itemsep}{0pt}%
+%             \setlength{\parskip}{0pt}%
+%             \item Sublist Item 1
+%             \item Sublist Item 2
+%         \end{itemize}
+%         \item Item 3
+% \end{itemize}
+% \vspace{-6pt}
+
+
+\usepackage{enumitem}
+\setlist{itemsep=0mm}
+
+\usepackage{amsmath,amsfonts,amssymb,bm}
+
+
+\begin{document}
+
+   \noindent
+   \begin{center}
+
+   \hrulefill
+   
+   \vspace{5pt}
+   
+   \makebox[\textwidth]{ {\bf Energy Systems Analysis} \hfill  A.D. Smith 2019}
+   \vspace{0pt}
+   
+   {\Large \hfill  Lecture 14. Occupants and Buildings\\ \hfill {\large Thermal Comfort, Environmental Quality, and Productivity}}
+   \vspace{5pt}
+   
+  
+   \hrulefill
+   \end{center}
+
+{\center{ \small{      ``Thermal conditions and indoor air quality tend to affect performance `across the board', suggesting that it is the ability to concentrate and to think clearly that is affected.''
+\\%[3pt]
+\rightline{{\rm --- Wargocki and Wyon \cite{Wargocki2017-ny}}}}}}
+
+\section{Thermal Comfort}
+
+Both passive (e.g. insulation) and active (e.g. air distribution) systems within the building contribute to the general conditions of thermal comfort that are sensed by the occupants.
+
+If you've ever lived (or even gone on a road trip) with someone who preferred temperatures a lot warmer or cooler than you do, you're instinctively aware that different people perceive thermal comfort differently. However, there are some generalizations we can make about how comfortable we would expect a population to be under a certain set of thermal conditions. Simply put:
+
+\begin{quote}
+    Thin clothing and warm air is equivalent to warm clothing and cool air, in terms of the resulting effect on both performance and thermal comfort. \cite{Wargocki2017-ny}
+\end{quote}
+
+Researchers have also firmly established that thermal comfort can affect both a person's subjective experience of their environment and some objective measures of productivity, but:
+
+\begin{quote}
+It is not proven that subjective acceptance of indoor environmental conditions leads to optimal performance. \cite{Wargocki2017-ny}
+\end{quote}
+
+\noindent
+There are six key variables that influence the thermal comfort of an occupant:
+
+\begin{enumerate}
+    \item Air temperature (dry bulb)
+    \item Humidity (typically indicated by relative humidity; could also be a humidity ratio or wet bulb temperature)
+    \item Air velocity
+    \item Mean radiant temperature
+    \item Clothing insulation
+    \item Activity level or metabolic rate
+\end{enumerate}
+
+The first four are \textit{environmental variables}, relating to the occupant's environment. In an air conditioned building, these are controlled for directly (usually 1 and 2) or indirectly (3 and 4, which are a result of the passive and active components of building design and operation). 
+
+You may not have heard of \textbf{mean radiant temperature}, which is measurement that incorporates radiation heat transfer to indicate ``how much cooling (or warming) you get from the exchange of radiant heat to all the objects in the room'' \cite{noauthor_undated-kj}. For a more technical but brief description, see the Designing Buildings Wiki page: \url{https://www.designingbuildings.co.uk/wiki/Mean_radiant_temperature}.
+
+Each person is different in terms of their metabolic rate, which determines how much heat they generate (and reject to their surroundings) as a result of a given activity. Cultural expectations and personal preferences also determine a person's subjective experience of comfort in a given thermal environment. 
+
+In addition to differences between individuals experiencing the same thermal conditions, conditions can vary even within a thermal zone. Although EnergyPlus has defined a thermal zone as ``a volume of air at a uniform temperature'' (Lecture 12), and will simulate it as such, it is not possible in a real building to keep variables 1--4 perfectly constant throughout a defined area. If the building has been zoned thoughtfully and designed and controlled well, the thermal environment within a zone will be much more similar to other locations within that zone that it is to locations in other thermal zones.
+
+The last two are \textit{personal variables}, relating to the occupant.
+Your physiological metabolic rate drives heat transfer away from the body (unless you're somewhere extremely hot!), but is not something you can immediately control for, or even measure accurately without significant equipment and inconvenience. Your clothing level (i.e. thermal insulation) and activity level (i.e. driving rate for heat generation) can change from day to day or even throughout the day.
+
+ASHRAE publishes Standard 55 which ``specifies conditions for acceptable thermal environments and is intended for use in design, operation, and commissioning of buildings and other occupied spaces'' \cite{noauthor_undated-wv}. Clothing level is quantified in ASHRAE 55 in units of \textbf{clo}, and activity level is quantified in ASHRAE 55 in units of \textbf{met}.
+
+There are two simple ways to quantify the expected thermal comfort satisfaction prescribed by occupants. A number of models for quantifying thermal comfort exist, with some additional complexity beyond the PMV and PPD methods described below. ASHRAE 55 also specifies an adaptive thermal comfort model that applies to ``naturally conditioned'' (i.e. not air conditioned) spaces \cite{noauthor_undated-wv}.
+
+\subsection{Predicted Mean Vote}
+
+The \textbf{predicted mean vote (PMV)} index gives a statistical prediction of how a population would vote on its thermal comfort under a certain set of thermal conditions. Votes are considered on a 7 point scale \cite{noauthor_undated-wv}:
+
+\begin{description}
+\item[-3] Cold
+\item[-2] Cool
+\item[-1] Slightly cool
+\item[0] Neutral
+\item[1] Slightly warm
+\item[2] Warm
+\item[3] Hot
+\end{description}
+
+A negative PMV would indicate that more occupants found the space to be cool that warm; a positive PMV would indicate that more occupants found the space to be warm than cool. A PMV of zero would indicate that, on average, the votes for coolness or warmness were equal, although no information is provided about the spread of the data, so that many people could still be dissatisfied even when the PMV is `neutral.'
+
+
+\subsection{Percentage of People Dissatisfied}
+
+The \textbf{percentage of people dissatisfied (PPD)} index gives a statistical prediction of how many people (out of 100) would indicate that they are thermally uncomfortable under a certain set of thermal conditions. If you want at least 85\% of your occupants to indicate that they are comfortable, you would want a PPD of 15 or less. A PPD of 0 would indicate that absolutely everyone is happy with their thermal environment, so as you might imagine, it's rare to set that as your goal---the lower the better, though.
+
+\section{Indoor Environmental Quality}
+
+Thermal comfort is the result of one aspect of a broader metric for the suitability of an interior for an occupant called \textbf{indoor environmental quality (IEQ)}. We focus on most extensively on thermal comfort because it is particularly relevant to thermal simulation, building energy use, and HVAC; it is necessary but not sufficient for providing a quality indoor environment.
+
+To support productivity and health for its occupants, the indoor environment, as a whole, should include consideration of each of these aspects:
+
+\vspace{-6pt}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \item Thermal environment
+    \item Indoor air quality
+    \item Lighting
+    \item Acoustics
+\end{itemize}
+\vspace{-6pt}
+
+An occupant who is able to enjoy the indoor environment without concern or health risk would be thermally comfortable, while breathing air that is free of pollutants and excessive $CO_2$, enjoying adequate lighting for their tasks without unpleasant glare, and free from excessive noise.
+
+ASHRAE publishes Standard 62.1 which ``specifies minimum ventilation rates and other measures for new and existing
+buildings that are intended to provide indoor air quality that is acceptable to human occupants and that minimizes adverse health effects'' \cite{noauthor_undated-st}.
+
+\section{Health, Productivity, and Wellness}
+
+In recent years, the conversation around indoor conditions has shifted from minimizing discomfort and avoiding pollutants to maximizing human \textit{wellness}. 
+
+One organization publicizing this approach to building design and operation is the International WELL Building Institute. Like LEED, they provide certifications in silver, gold, and platinum, but their standards focus on making buildings \textit{beneficial} for their occupants in many ways.
+
+\begin{quote}
+    Nature has long been our caretaker. With intentional design, our buildings can be too. \cite{noauthor_undated-tn}
+\end{quote}
+
+
+The WELL v2 Building Standard is accessible online, currently as a pilot version, at \url{https://v2.wellcertified.com/}. It is comprised of ten concepts \cite{noauthor_undated-tn}:
+
+\vspace{-6pt}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \item Air
+    \item Water
+    \item Nourishment
+    \item Light
+    \item Movement
+    \item Thermal Comfort
+    \item Sound
+    \item Materials
+    \item Mind
+    \item Community
+\end{itemize}
+
+Notice that Air, Light, Thermal Comfort, and Sound are paraphrased versions of the traditional four aspects of IEQ. This particular standard goes beyond these concerns and also addresses within the built environment \cite{noauthor_undated-tn}:
+
+\vspace{-6pt}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \item Availability of clean drinking water and water management within a building
+    \item Availability of fresh food and transparency of nutritional information
+    \item Promotion of movement and physical activity, reducing sedentary behaviors
+    \item Safe, low-emission materials, reducing exposure to hazardous or toxic materials
+    \item Promotion of mental health, both cognitive and emotional well-being
+    \item Access to healthcare, family accommodations, social equity, and civic engagement
+\end{itemize}
+
+These categories, while far from the traditional concerns of building scientists and engineers, encompass more of the factors that influence the productivity of occupants. Thermal comfort is only one particular perception that will connect with a person's physical, mental, emotional and social experiences to define their perception of the indoor environment and their performance therein.
+
+% license
+\bigskip
+
+\noindent
+\texttt{\footnotesize RESTRICTED PUBLIC LICENSE --- READ BEFORE SHARING. This is a draft version made available by Amanda D. Smith under a Creative Commons Attribution-NonCommercial-ShareAlike license. 
+\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}}
+
+% references
+\newpage
+\printbibliography
+
+\end{document}
