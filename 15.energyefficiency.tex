@@ -1,0 +1,200 @@
+% 2019-02-15
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=6.5in]{folder/photo.png}
+% \caption{}
+% \label{}
+% \end{figure}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{subfigure}
+\usepackage{stackrel}
+\usepackage{blindtext}
+
+\usepackage[access=false]{biblatex}
+\addbibresource{library.bib}
+
+\oddsidemargin=0.15in
+\evensidemargin=0.15in
+\topmargin=-.5in
+\textheight=9in
+\textwidth=6.25in
+
+\usepackage[colorlinks=true,breaklinks,pdfpagemode=none,linkcolor=blue,citecolor=blue]{hyperref}
+
+\usepackage{enumerate}
+% \vspace{-6pt}
+% \begin{itemize}
+%     \setlength{\itemsep}{0pt}%
+%     \setlength{\parskip}{0pt}%
+%     \item Item 1
+%     \item Item 2
+%         \begin{itemize}
+%             \setlength{\itemsep}{0pt}%
+%             \setlength{\parskip}{0pt}%
+%             \item Sublist Item 1
+%             \item Sublist Item 2
+%         \end{itemize}
+%         \item Item 3
+% \end{itemize}
+% \vspace{-6pt}
+
+
+\usepackage{enumitem}
+\setlist{itemsep=0mm}
+
+\usepackage{amsmath,amsfonts,amssymb,bm}
+
+
+\begin{document}
+
+   \noindent
+   \begin{center}
+
+   \hrulefill
+   
+   \vspace{5pt}
+   
+   \makebox[\textwidth]{ {\bf Energy Systems Analysis} \hfill  A.D. Smith 2019}
+   \vspace{0pt}
+   
+   {\Large \hfill  Lecture 15. Building Energy Use: Efficiency, Productivity, Conservation, and Operating Costs}
+   \vspace{5pt}
+   
+%  {\center{ \small{      ``Nearly all the definitions of sustainability that have circulated in recent years emphasize an ecological point of view---the notion that human society and economy are intimately connected to the natural environment.''
+% \\%[3pt]
+% \rightline{{\rm --- Jeremy L. Caradonna \cite{Caradonna2014-fa}}}}}}
+  
+   \hrulefill
+   \end{center}
+
+
+\section{Energy Efficiency}
+
+\textbf{Energy efficiency (EE)} in general is about getting \textit{more} output or benefits for \textit{less} input or costs. To make sure you're comfortable with the engineering terminology and variables I'll be using here, see the thermodynamics review (Lecture 2) or your textbook as needed. Unless otherwise noted, assume that we are talking about a First Law efficiency.
+
+\subsection{Economic benefits from EE}
+
+There's no clear-cut way to say whether a given energy efficiency measure (EEM) is economically beneficial--it depends on the payback period (PBP)  that the financing person or entity expects to receive, and there is always some uncertainty in whether the EEM performs exactly as expected (including uncertainty in external factors like weather), although engineering judgment and wise use of modeling and calculation tools can help to reduce that. A simple payback period just indicates the amount of time required to recover an investment. We'll discuss more complicated methods of calculating economic metrics in Lecture 17.
+
+\begin{equation}
+\label{pbp}
+PBP = \frac{CC}{AR}
+\end{equation}
+
+where \textit{CC} represents the capital cost outlay [\$] and AR represents the annual return [\$/yr]. You can see from the units that the payback period will conventionally be described in years (although  we might be lucky enough to find a project with a PBP of only a few months).
+
+Efficiency is a description of what we \textit{get} versus what it \textit{costs} us, i.e. Energy in/Energy out. By convention, the numerator and denominator should be in the same unit system so that we come up with a fractional number between 0 and 1.
+
+\subsection{Device efficiency}
+
+When we think of efficiency, we are most often thinking of it at the device level. This is also the most straightforward type of efficiency to quantify: we consider one control volume and we measure the fuel (for example) that goes in and the mechanical work (for example) that comes out.
+
+\subsubsection{Heating (combustion) devices}
+
+If we're using fuel to provide heat, then we want a description of how much thermal output we have for each unit of fuel input. Fuel energy is described by its heating value:
+
+\begin{quote}
+    The \textbf{heating value} of the fuel...is defined as the amount of heat released when a fuel is burned completely in a steady-flow process and the products are returned to the state of the reactants. \cite{cengel}
+\end{quote}
+
+Note that this definition emphasizes the state of the products of the chemical reaction. It's important to differentiate between higher and lower heating values because they will different for the same fuel, and therefore you'll get different efficiency results for a fuel-burning device when you use one or the other. The \textbf{higher heating value (HHV)} means that the water in the products is in a liquid phase (e.g. condensing boiler), and the \textbf{lower heating value (LHV)} means that the water in the products is in a gaseous phase (e.g. water vapor exiting with combustion exhaust).
+
+
+
+
+\subsubsection{Cooling (or heat pump) devices}
+
+Devices that use energy (usually electrical) to move heat are described in terms of their \textbf{coefficient of performance (COP)} rather than using the term `efficiency.' It still tells us the same type of information: What we \textit{get} versus what it \textit{costs} us, only what we get is the movement of heat and what it costs us is electricity. By convention, the numerator and denominator should be in the same unit system so that we come up with a dimensionless number, but we are not limited to a number between 0 and 1 (and in fact, a COP below 1 would be quite bad for, say, a vapor compression refrigeration cooling device).
+
+In practice, COPs for cooling devices (or heat pumps) are often discussed using metrics with units:
+\smallskip
+
+\textbf{Energy efficiency ratio (EER)} is a COP given in units of $\frac{BTU}{Wh}$. Note this is a watt-hour and not a kilowatt-hour; this is a conventional unit for this particular metric. One way to think of it is that you're moving \textit{X} BTUs per hour using \textit{Y} amount of electrical power.
+
+\textbf{Seasonal energy efficiency ratio (SEER)} is an EER that is taken over an entire year, or over a cooling season. This metric tries to capture the fact that a given cooling unit will not be operating at steady state in the real world, and its performance will be affected by changing conditions. Details on how this is calculated can be found in the ANSI/AHRI Standard 210/240 \cite{ANSIAHRI_Standard_2102017-ca}.
+
+\subsection{System efficiency}
+
+When we combine devices into systems, it becomes even more important to clearly state the method used for calculating efficiencies. For example, you have options \cite{Us_epa2015-xj} in describing the efficiency of a combined heat and power system, which provides both electrical energy and thermal energy, based on whether you're trying to capture the thermal efficiency as described using the first law in our engineering thermo courses or whether you're trying to compare a CHP system against a conventional power generation system (Lecture 3).
+
+
+
+\section{Energy Productivity}
+
+Energy productivity is another term you may see that is similar to efficiency, although it's usually much broader than the tightly defined types of efficiency we tend to think of when we hear energy efficiency. In general, we can say that this represents the services or benefits that we receive from each unit of energy used in a certain way. The U.S. Department of Energy defines energy productivity on a national scale as ``the ratio of economic output (gross
+domestic product (GDP)) to primary energy use.'' \cite{energyproductivity}
+
+
+\section{EUI for buildings}
+
+The energy performance of a building as a whole is often described in a rough sense as its \textbf{energy use intensity (EUI)}, which normalizes total site energy use with the building's floor area. It's common to use the total site energy consumed (of whatever type) divided by the total gross floor area \cite{noauthor_undated-vw}, but could be done on a source energy basis \cite{noauthor_undated-kb} or per unit area of conditioned space basis, depending on what you're concerned with.
+
+It's a classic way to benchmark a building, either to gauge its overall efficiency or to set a baseline before some EEM takes place. It's common to compare against buildings of similar use types (see Lecture 9 for general categories):
+
+\begin{quote}
+    Generally, a low EUI signifies good energy performance. However, certain property types will always use more energy than others. For example, an elementary school uses relatively little energy compared to a hospital. \cite{noauthor_undated-vw}
+\end{quote}
+
+When benchmarking and comparing, it's important to specify clearly how the EUI is defined, and to consider the effects of weather on building energy use. If you want to get a sense of the range of EUI values for different types of buildings, Energy Star Portfolio Manager provides some national guidelines \cite{Breakdown_undated-ho}. They also provide free online tools that can help you benchmark an existing building \cite{noauthor_undated-aw}.
+
+\section{Energy Return on Energy Invested}
+
+Pickard \cite{Pickard2014-eb} provides a brief introduction to, and thoughtful critique of, the use of the EROI concept. Here is the basic explanation:
+
+\begin{quote}
+    The concept of \textbf{energy return on energy invested (EROI)} is related to the familiar economic observation that a wise investor does not expend more money on a project than, in aggregate, he expects to get back. Therefore, it is commonly defined as EROI = (energy output)/(energy input) = (energy returned)/(energy invested); and one desires it to be greater than one: much greater. \cite{Pickard2014-eb}
+\end{quote}
+
+This opinion article \cite{Pickard2014-eb} provides some thoughtful questions and recommendations about how EROI is used for policymaking, and how the implications of this concept change when energy sources are renewable versus conventional.
+
+Hall et al. \cite{Hall2014-dc} explain that a reduction on EROI (meaning it takes more energy input to produce a certain amount of energy output) is also tied into our economic development:
+
+\begin{quote}
+     Declining EROI means that an increasing proportion of energy output and economic activity must be diverted to attaining the energy needed to run an economy, leaving less discretionary funds available for ``non-essential'' purchases which often drive growth. \cite{Hall2014-dc}
+\end{quote}
+
+\section{Energy Conservation}
+
+It's important to note that energy conservation refers to a reduction in energy expenditures, so while it is often related to energy efficiency, they are not the same thing. We can conserve energy by simply building a smaller building, by turning a device off entirely (mathematically, making its efficiency $\infty$ if our needs are still met), or perhaps even by replacing a system with a less efficient system (from a First Law perspective) that has to run much less often (thereby using less input overall).
+
+
+\section{Operating Costs}
+
+We can broadly divide the energy and water-related operating costs for a typical building into the types of resources used:
+
+\begin{itemize}
+    \item Purchased electricity (kWh)
+    \item Fuel used on-site (BTU)
+    \item Water used on-site (gal)
+    \item District energy purchases, e.g.
+    \begin{itemize}
+        \item Steam
+        \item Hot water
+        \item Chilled water
+    \end{itemize}
+\end{itemize}
+
+Remember that simple payback is defined as the cost to implement divided by the savings per year. For projects that save energy, the annual savings are often described in units like MMBtu or MWh, and these must be converted to a dollar amount to get a value for PBP. If the facility does not pay a flat rate like most of us do for kWh consumed in our homes (e.g. they are a on a rate schedule that charges for energy in blocks and/or they have demand charges to content with), this could be a tediously detailed undertaking to accurately quantify.
+
+% license
+\bigskip
+
+\noindent
+\texttt{\footnotesize RESTRICTED PUBLIC LICENSE --- READ BEFORE SHARING. This is a draft version made available by Amanda D. Smith under a Creative Commons Attribution-NonCommercial-ShareAlike license. 
+\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}}
+
+% references
+\newpage
+\printbibliography
+
+\end{document}
