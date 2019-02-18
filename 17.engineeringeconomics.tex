@@ -20,7 +20,7 @@
 \usepackage{stackrel}
 \usepackage{blindtext}
 
-\usepackage[url=false]{biblatex}
+\usepackage{biblatex}
 \addbibresource{library.bib}
 
 \oddsidemargin=0.15in
@@ -68,35 +68,173 @@
    \vspace{0pt}
    
    {\Large \hfill  Lecture 17.  
-Building Energy Use: Basic Engineering Economics}
+Building Energy Use and the Energy Sector:\\ \hfill Basic Engineering Economics}
    \vspace{5pt}
    
   
    \hrulefill
    \end{center}
 
-% {\center{ \small{      ``All models, whether mental models or mathematical models, are simplifications of the real world \ldots We each choose how much complexity to look at.''
-% \\%[3pt]
-% \rightline{{\rm --- Donella H. Meadows \cite{Donella_H_Meadows2016-nq}}}}}}
 
-\section{Discount rate and time value of money}
+   {\color{darkgray}{\center{ \small{``All market-based economies operate against a background of laws and regulations, including laws about enforcing contracts, collecting taxes, and protecting health and the environment.''
+\\
+\rightline{{\rm --- Steven A. Greenlaw et al. \cite{Greenlaw_undated-ok}}}}}}}
+
+\section{Time value of money}
+\label{tv}
+
+   {\color{darkgray}{\center{ \small{``The ability to make personal choices about buying, working, and saving is an important personal freedom.''
+\\
+\rightline{{\rm --- Steven A. Greenlaw et al. \cite{Greenlaw_undated-ok}}}}}}}
+\smallskip
+
+The phrase \textbf{time value of money} refers to the fact that it's preferable to have money \textit{now} rather than an equivalent sum at a later time. If I offered you \$20 right now, you'd take it. If I offered you \$20 at the end of the semester as an alternative, you'd turn it down and take the first option. But there's some larger amount of money you'd be willing to wait for, and pass on the \$20 now (assuming you believed I would deliver at the agreed-upon date).
+
+\subsection{Interest rate}
+
+The term \textbf{interest rate} can refer to either the cost of borrowing in a financial market (e.g. interest rate on a mortgage) or to the benefit reaped from an investment (e.g. rate of return based on an energy conserving upgrade).
+
+\subsection{Discount rate}
+
+The \textbf{discount rate} is the interest rate that banks pay to receive loans. It has become a major lever of monetary policy: ``If the central bank raises the discount rate, then commercial banks will reduce their borrowing of reserves from the [Federal Reserve], and instead call in loans to replace those reserves. Since fewer loans are available, the money supply falls and market interest rates rise. If the central bank lowers the discount rate it charges to banks, the process works in reverse.'' \cite{Greenlaw_undated-ok} This means that even if you have zero debt and pay for everything in cash, the prices you pay (and your own net wealth) result from a combined ``interlocking system of money, loans, and banks.'' \cite{Greenlaw_undated-ok} Talk about complex systems!
+
+If you're not familiar at all with U.S. financial history, check out Ch. 28 of the open textbook \textit{Principles of Economics 2e} \cite{Greenlaw_undated-ok} ---the financial news will make a lot more sense in context. And who would have thought that the interest rate we get when purchasing a house here in Salt Lake City in 2019 results from the operations of a system whose purpose and structure were a reaction to bank runs circa 1907? (Full disclosure: I learned about bank runs from the movie \textit{Mary Poppins}.) 
 
 
-\cite{Goswami2007-hf}
 
-\section{Economic metrics for energy systems}
+\section{Economic metrics for energy systems and energy-related investments}
+\label{em}
 
-\subsection{[Simple] payback period}
+   {\color{darkgray}{\center{ \small{``The ability to make personal choices about buying, working, and saving is an important personal freedom.''
+\\
+\rightline{{\rm --- Steven A. Greenlaw et al. \cite{Greenlaw_undated-ok}}}}}}}
+\smallskip
+
+We discussed the simple payback period in Lecture 15 as our most simple and straightforward way to quantify the potential benefit of an investment. Larger and more complex investments may require other metrics that capture more information about the potential benefit of the investment. It is particularly valuable when we can capture the time value of money because a company that is considering making an investment will want to compare the potential investment against all the other options they have for making money in the same time period. 
+
+Long-term financial projections are also a great place to apply uncertainty analysis, which we will learn about in more detail in the second half of the course, because a relatively small amount of uncertainty in one of the inputs to a financial model could lead to dramatic differences in the outputs in terms of expected revenue or payback period.
 
 \subsection{Discounted payback period}
+\label{dp}
+
+The term \textbf{discounting} refers to ``a technique for converting cash flows that occur over time to equivalent amounts at a common point in time using the opportunity cost for capital.'' \cite{Goswami2007-hf} If you had a specific number in mind for the example described in Section \ref{tv} like, say, \$30, then you are \textit{discounting} that \$30 a few months from now into an equivalent \$20 now. That is some steep discounting!
+
+You may also see the term `discount rate' used in a microeconomic sense to describe a more personal discounting that incorporates the time value of money to that individual: ``The rate of interest for which an investor feels adequately compensated for trading money now for money in the future is the appropriate rate to use for converting present sums to future equivalent sums and future sums to present equivalent sums. \ldots This rate is often called the \textit{discount rate}.'' 
+
+The discounted payback period of an investment is: 
+
+$$
+DPBP = CC \sum_{t=0}^{N} \frac{(1+d)^t}{AR}
+$$
+
+where \textit{CC} = capital costs, \textit{d} = discount rate (in the sense described here in Section \ref{dp}), \textit{t} = time in number of years, and N = number of years in the analysis period (Section \ref{an}).
+
+Annual return can also be expressed as:
+
+$$AR=B_t-C_t$$
+
+where $B_t$ = benefits in year \textit{t} and $C_t$ = costs in year \textit{t}. \cite{Goswami2007-hf}
 
 \subsection{Life cycle cost}
 
+The life cycle cost of an investment is:
+
+$$LCC = I + E + O\&M + R - S$$
+
+where, for the alternative being considered,  \textit{I} = present-value investment costs , \textit{E} = present-value energy costs, \textit{O\&M} = present-value (non-fuel) operating and maintenance costs, \textit{R} = present-value repair and replacement costs, and \textit{S} = present-value salvage or resale value. Note that if disposal costs exceed the salvage value of an investment, the \textit{S} term would be negative, and when multiplied by the negative sign in front of the term, would add to the overall \textit{LCC} value.
+
+
+
+\subsection{Net present value or present discounted value}
+
+You may also see this called present discounted value \cite{Greenlaw_undated-ok} or present value (PV), but we'll reserve the acronym PV for photovoltaics in here.
+
+Net present value of an investment is:
+
+$$NPV = \sum_{t=0}^{N} \frac{FV}{(1+i)^t}$$
+
+where \textit{FV} = future value (received years in the future), \textit{i} = annual interest rate, \textit{t} = time in number of years, and N = number of years in the analysis period (Section \ref{an}). \cite{Greenlaw_undated-ok}
+
+Future value can also be expressed as:
+
+$$FV=B_t-C_t$$
+
+where $B_t$ = benefits in year \textit{t} and $C_t$ = costs in year \textit{t}. \cite{Goswami2007-hf}
+
 \subsection{Levelized cost}
 
-\subsection{Net present value}
+The \textbf{levelized cost of energy (LCOE)} is a common metric used to express cost for an energy supply system. It's important to note that the metric was designed for comparing alternatives, particularly comparing between two electric generation technology types.
 
-\section{Analysis and the causes of of uncertainty in economic performance}
+\begin{quote}
+    The LCOE is the value that must be received for each unit of energy produced to ensure that all costs and a reasonable profit are made. \cite{Goswami2007-hf}
+\end{quote}
+
+In its simplest form, LCOE is expressed as:
+
+$$LCOE = \sum_{t=0}^{N} \frac{C_t}{Q_t}$$
+
+where $C_t$ = costs incurred in year \textit{t}, $Q_t$ = energy produced in year \textit{t}, and N = analysis period (Section \ref{an}). \cite{Greenlaw_undated-ok}
+
+Lazard, a financial advising firm who regularly release thorough analyses of LCOEs for the U.S., cautions with their own Levelized Cost of Energy Analysis \cite{lazards12}:
+
+\begin{quote}
+    Other factors would also have a potentially significant effect on the results
+contained herein, but have not been examined in the scope of this current analysis. \ldots This analysis also does not
+address potential social and environmental externalities, including, for example, the social costs and rate consequences for those who cannot
+afford distribution generation solutions, as well as the long-term residual and societal consequences of various conventional generation
+technologies that are difficult to measure (e.g., nuclear waste disposal, airborne pollutants, greenhouse gases, etc.). \cite{lazards12}
+\end{quote}
+
+\section{Analysis}
+\label{an}
+
+   {\color{darkgray}{\center{ \small{``Economists believe that we can analyze individuals’ decisions, such as what goods and services to buy, as choices we make within certain budget constraints.''
+\\
+\rightline{{\rm --- Steven A. Greenlaw et al. \cite{Greenlaw_undated-ok}}}}}}}
+\smallskip
+
+
+We, as engineering analysts, are dealing with a certain time frame over which the economic analysis is relevant. Selecting this time period is related to the technology of interest, the financial details, and the reason(s) for performing the analysis.
+
+\begin{quote}
+\begin{description}
+\item[Useful life] the period over which the investment has some value; i.e., the investment continues to conserve or provide energy during this period. \cite{Goswami2007-hf}
+\item[Economic life] the period during which the investment in question is the least-cost way of meeting the requirement. \cite{Goswami2007-hf}
+\item[Analysis period] need not be the same as either the ``useful life'' or the ``economic life,'' \ldots The selection of an analysis period will depend on the objectives and perspective of the decision maker. \cite{Goswami2007-hf}
+\end{description}
+\end{quote}
+
+\subsection{Taxes and incentives}
+
+Taxes and incentives are important to consider within an economic evaluation, including: income taxes, sales taxes, property taxes, capital gain taxes, tax deductions, tax credits, energy incentives, subsidy grants, government cost sharing, loan interest reductions, tax subsidies, and income tax credits \cite{Goswami2007-hf}. These may make a formerly promising investment less economically viable, or may take an investment that looked less promising into economic viability.
+
+The North Carolina Clean Energy Technology Center sponsors a public database (formerly Department of Energy-funded) that helps people find state-level incentives for renewables and energy efficiency in the U.S.: \url{http://www.dsireusa.org/}
+
+\subsection{Uncertainty and risk assessment}
+
+A simple sensitivity analysis, or parametric study on variables that may change throughout the lifetime of the project, allows us to understand how economic performance (in the form of whatever metrics are most relevant to the decision maker) will change as these variables take on different values.
+
+\begin{quote}
+    Although sensitivity analysis does not provide a a single answer in economic terms, it does show decision makers how the economic viability of a renewable energy or efficiency project changes as fuel prices, discount rates, time horizons, and other critical factors vary. \cite{Goswami2007-hf}
+\end{quote}
+
+When we are able to quantify the probability of obtaining certain values (i.e. assign statistical distributions to the variables), a formal uncertainty analysis can be used to incorporate the effects of these uncertainties into the predicted economic performance values.
+
+Additional economic metrics and economic analysis methods exist that allow us to better capture the effects of uncertainties, including modified versions of some of the metrics shown in Section \ref{em}: expected value analysis, risk-adjusted discount rate (i.e. discounting values based on the decision maker's acceptable or typical level of risk), certainty equivalent (a version of NPV that accounts for uncertain outcomes), and others.
+
+\section{Economic performance and sustainability}
+
+   {\color{darkgray}{\center{ \small{``Some academic
+disputes over environmental policies, like how much to reduce carbon dioxide emissions because of the risk that they will lead to a warming of global temperatures several decades in the future, turn on how one compares present costs of pollution control with long-run future benefits.''
+\\
+\rightline{{\rm --- Steven A. Greenlaw et al. \cite{Greenlaw_undated-ok}}}}}}}
+\smallskip
+
+Economic performance is itself a pillar of sustainability (Lecture 1, `prosperity') and affects whether the project itself will be sustainable as well as how the project will affect larger systems within the other two pillars of sustainability. Because there are inherent trade-offs and interconnections between ecological, social, and economic systems, methods like carbon tax accounting have been created to allow us to discuss environmental impacts in the language of finance.
+
+In my own work, we prefer to look for opportunities to positively affect multiple sustainability pillars at the same time. For instance, where can we save emissions \textit{and} reduce cost? How can we improve someone's experience in the built environment \textit{and} use less water? I hope you will look for these potential bright spots in your work and that by the end of this course, you have a set of tools and ideas that allow you to quantify your analysis in a way that resonates with decision makers. 
+
+
 
 % license
 \bigskip
@@ -106,7 +244,7 @@ Building Energy Use: Basic Engineering Economics}
 \href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}}
 
 % references
-\newpage
+
 \printbibliography
 
 \end{document}

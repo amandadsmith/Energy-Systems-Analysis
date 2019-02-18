@@ -20,7 +20,7 @@
 \usepackage{stackrel}
 \usepackage{blindtext}
 
-\usepackage{biblatex}
+\usepackage[url=false]{biblatex}
 \addbibresource{library.bib}
 
 \oddsidemargin=0.15in
@@ -75,13 +75,13 @@
    \hrulefill
    \end{center}
 
-{\center{ \small{      ``Computerized    searching    has    the    
+   {\color{darkgray}{{\center{ \small{      ``Computerized    searching    has    the    
 potential  to  automate  the  input  and  output,  evaluate  
 many   options,   and   perform   enough   simulations   to    account     for     the     complex     interactions     among      combinations of options.''
 \\%[3pt]
-\rightline{{\rm --- Ellis, Griffith, Long, Torcellini, and Crawley \cite{Ellis2006-wg}}}}}}
+\rightline{{\rm --- Ellis, Griffith, Long, Torcellini, and Crawley \cite{Ellis2006-wg}}}}}}}}
 
-%\bigskip
+\vspace{-2pt}
 
 \section{Parametric analysis for modelers}
 
@@ -153,12 +153,12 @@ This is particularly difficult early in the design process, when the most opport
 
 \section{Parametric analysis with OpenStudio}
 
-OpenStudio provides support for parametric analysis through a specially designed interface. This program also has support for running multiple models on the cloud (AWS). The basic steps to use the tool are \cite{noauthor_undated-yz}:
+OpenStudio provides support for parametric analysis through a specially designed interface. This program also has support for running multiple models on the cloud through AWS. The basic steps to use the tool (on your desktop computer) are \cite{noauthor_undated-yz}:
 
 \begin{enumerate}
     \setlength{\itemsep}{0pt}%
     \setlength{\parskip}{0pt}%
-    \item Open the Parametric Analysis program --- This is a separate application that was installed in your OpenStudio directly with the OpenStudio interface application).
+    \item Open the Parametric Analysis program --- This is a separate application that was installed in your OpenStudio directly with the OpenStudio interface application.
     \item Name your project --- This will be the name of the directory where your parametric analysis is stored.
     \item Provide a default seed model --- This is the OSM model that will provide a baseline for the parametric analysis.
     \item Provide a default weather file --- This is the EPW file that will provide a baseline for the parametric analysis.
