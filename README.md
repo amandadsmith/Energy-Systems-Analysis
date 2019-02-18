@@ -8,7 +8,7 @@ These lectures are for the Spring 2019 offering of the course Energy Systems Ana
 
 **Intended audience**: Upper-level undergrads and early graduate students with a background in engineering, energy and environmental sciences, or architecture who want to incorporate sustainability, systems thinking, and data science techniques into their work.
 
-Now available: <a href="https://github.com/amandadsmith/Energy-Systems-Analysis/tree/master/PDFs">PDF version</a> of all lectures given to date. 
+Now available: <a href="https://github.com/amandadsmith/Energy-Systems-Analysis/tree/master/PDFs">combined PDF version</a> of the first half of the lectures in the course. 
 
 Blue text in the files means that it has been updated since it was originally presented to the students.
 
