@@ -182,13 +182,6 @@
 }
 
 
-@TECHREPORT{noauthor_2018-ho,
-  title       = "{U.S}. Energy Use Intensity by Property Type",
-  institution = "Energy Star",
-  year        =  2018,
-  url         = "https://portfoliomanager.energystar.gov/pdf/reference/US%20National%20Median%20Table.pdf"
-}
-
 @MISC{noauthor_undated-kb,
   title        = "The difference between source and site energy",
   url          = "https://www.energystar.gov/buildings/facility-owners-and-managers/existing-buildings/use-portfolio-manager/understand-metrics/difference",
@@ -229,11 +222,15 @@
   note         = "Accessed: 2019-2-13"
 }
 
-@MISC{noauthor_undated-wv,
-  title        = "{ASHRAE} 55-2017 | {ASHRAE} Store",
-  url          = "https://www.techstreet.com/ashrae/standards/ashrae-55-2017?product_id=1994974",
-  howpublished = "\url{https://www.techstreet.com/ashrae/standards/ashrae-55-2017?product_id=1994974}",
-  note         = "Accessed: 2019-2-11"
+
+@TECHREPORT{ASHRAE55-2017,
+  title     = "Standard 55-2017 -- Thermal Environmental Conditions for Human
+               Occupancy",
+  author    = "{ANSI/ASHRAE}",
+  publisher = "ASHRAE",
+  number    = "55-2017",
+  year      =  2017,
+  url       = "https://www.techstreet.com/ashrae/standards/ashrae-55-2017?product_id=1994974"
 }
 
 
@@ -539,12 +536,16 @@
 }
 
 
-@MISC{noauthor_undated-vj,
-  title        = "White Box Technologies Weather Data",
+
+@MISC{WhiteBox-weather,
+  title        = "Weather Data",
+  booktitle    = "White Box Technologies",
   url          = "http://weather.whiteboxtechnologies.com/",
   howpublished = "\url{http://weather.whiteboxtechnologies.com/}",
-  note         = "Accessed: 2019-1-24"
+  note         = "Accessed: 2019-1-24",
+  copyright    = "2008 White Box Technologies, Inc."
 }
+
 
 @PHDTHESIS{Bianchi-dissertation,
   title  = "{DEPENDENCE} {OF} {BUILDING} {ENERGY} {CONSUMPTION} {AND} {SOLAR}
@@ -855,22 +856,25 @@
 }
 
 
-@MISC{noauthor_undated-wv,
-  title        = "Residential Energy Consumption Survey ({RECS}) - Energy
-                  Information Administration",
+
+@MISC{RECS,
+  title        = "Residential Energy Consumption Survey ({RECS})",
+  booktitle    = "{U.S}. Energy Information Administration",
   url          = "https://www.eia.gov/consumption/residential/index.php",
   howpublished = "\url{https://www.eia.gov/consumption/residential/index.php}",
   note         = "Accessed: 2019-1-6"
 }
 
 
-@MISC{noauthor_undated-va,
-  title        = "Energy Information Administration ({EIA)-} Commercial
-                  Buildings Energy Consumption Survey ({CBECS})",
+
+@MISC{CBECS,
+  title        = "Commercial Buildings Energy Consumption Survey ({CBECS})",
+  booktitle    = "{U.S}. Energy Information Administration ({EIA})",
   url          = "https://www.eia.gov/consumption/commercial/index.php",
   howpublished = "\url{https://www.eia.gov/consumption/commercial/index.php}",
   note         = "Accessed: 2019-1-6"
 }
+
 
 
 @MISC{noauthor_undated-dy,
@@ -1057,17 +1061,6 @@
   year      =  2017,
   language  = "en",
   isbn      = "9781594205583"
-}
-
-
-@BOOK{Downey2012-ce,
-  title     = "Think Complexity: Complexity Science and Computational Modeling",
-  author    = "Downey, Allen B",
-  publisher = "``O'Reilly Media, Inc.''",
-  month     =  feb,
-  year      =  2012,
-  language  = "en",
-  isbn      = "9781449331696"
 }
 
 
@@ -3087,15 +3080,6 @@
   keywords     = "Add to IESA"
 }
 
-% The entry below contains non-ASCII chars that could not be converted
-% to a LaTeX equivalent.
-@MISC{noauthor_undated-vj,
-  title        = "What is District Energy? » District Energy",
-  url          = "http://www.districtenergy.org/what-is-district-energy",
-  howpublished = "\url{http://www.districtenergy.org/what-is-district-energy}",
-  note         = "Accessed: 2017-4-17",
-  keywords     = "Add to IESA"
-}
 
 @BOOK{Goswami2000-zg,
   title     = "Principles of solar engineering",
@@ -3136,33 +3120,10 @@
 @BOOK{Downey2012-ce,
   title     = "Think Complexity: Complexity Science and Computational Modeling",
   author    = "Downey, Allen B",
-  abstract  = "Expand your Python skills by working with data structures and
-               algorithms in a refreshing context---through an eye-opening
-               exploration of complexity science. Whether you’re an
-               intermediate-level Python programmer or a student of
-               computational modeling, you’ll delve into examples of complex
-               systems through a series of exercises, case studies, and
-               easy-to-understand explanations.You’ll work with graphs,
-               algorithm analysis, scale-free networks, and cellular automata,
-               using advanced features that make Python such a powerful
-               language. Ideal as a text for courses on Python programming and
-               algorithms, Think Complexity will also help self-learners gain
-               valuable experience with topics and ideas they might not
-               encounter otherwise.Work with NumPy arrays and SciPy methods,
-               basic signal processing and Fast Fourier Transform, and hash
-               tablesStudy abstract models of complex physical systems,
-               including power laws, fractals and pink noise, and Turing
-               machinesGet starter code and solutions to help you re-implement
-               and extend original experiments in complexityExplore the
-               philosophy of science, including the nature of scientific laws,
-               theory choice, realism and instrumentalism, and other
-               topicsExamine case studies of complex systems submitted by
-               students and readers",
-  publisher = "``O'Reilly Media, Inc.''",
-  month     =  "23~" # feb,
+  abstract  = "",
+  publisher = "O'Reilly Media, Inc.",
   year      =  2012,
   url       = "http://greenteapress.com/complexity/",
-  keywords  = "Add to IESA",
   language  = "en",
   isbn      = "9781449331696"
 }
@@ -3238,71 +3199,6 @@
   keywords  = "Add to IESA",
   language  = "en",
   isbn      = "9780199372409"
-}
-
-@BOOK{Grondzik2014-gt,
-  title     = "Mechanical and Electrical Equipment for Buildings",
-  author    = "Grondzik, W T and Kwok, A G",
-  publisher = "Wiley",
-  year      =  2014,
-  url       = "https://books.google.com/books?id=3kebBAAAQBAJ",
-  keywords  = "IESA;Add to IESA",
-  isbn      = "9781118867181"
-}
-
-@MISC{Clark2016-zv,
-  title        = "A {WELCOME} {REFINEMENT} {TO} {THE} {DEFINITION} {OF} {ZERO}
-                  {ENERGY} {BUILDINGS}",
-  booktitle    = "{LinkedIn} Pulse",
-  author       = "Clark, Curtis James",
-  abstract     = "In September 2015, the U.S. Department of Energy established
-                  a new definition of Zero Energy Buildings. The new definition
-                  is intended to achieve",
-  month        =  "1~" # mar,
-  year         =  2016,
-  url          = "https://www.linkedin.com/pulse/welcome-refinement-definition-zero-energy-buildings-clark",
-  howpublished = "\url{https://www.linkedin.com/pulse/welcome-refinement-definition-zero-energy-buildings-clark}",
-  note         = "Accessed: 2017-1-11",
-  keywords     = "IESA;Add to IESA"
-}
-
-@BOOK{Ansolabehere2014-fi,
-  title     = "Cheap and Clean: How Americans Think about Energy in the Age of
-               Global Warming",
-  author    = "Ansolabehere, Stephen and Konisky, David M",
-  abstract  = "How do Americans think about energy? Is the debate over fossil
-               fuels highly partisan and ideological? Does public opinion about
-               fossil fuels and alternative energies divide along the fault
-               between red states and blue states? And how much do concerns
-               about climate change weigh on their opinions? In Cheap and
-               Clean, Stephen Ansolabehere and David Konisky show that
-               Americans are more pragmatic than ideological in their opinions
-               about energy alternatives, more unified than divided about their
-               main concerns, and more local than global in their approach to
-               energy.Drawing on extensive surveys they designed and conducted
-               over the course of a decade (in conjunction with MIT's Energy
-               Initiative), Ansolabehere and Konisky report that beliefs about
-               the costs and environmental harms associated with particular
-               fuels drive public opinions about energy. People approach energy
-               choices as consumers, and what is most important to them is
-               simply that energy be cheap and clean. Most of us want energy at
-               low economic cost and with little social cost (that is, minimal
-               health risk from pollution). The authors also find that although
-               environmental concerns weigh heavily in people's energy
-               preferences, these concerns are local and not global. Worries
-               about global warming are less pressing to most than worries
-               about their own city's smog and toxic waste. With this in mind,
-               Ansolabehere and Konisky argue for policies that target both
-               local pollutants and carbon emissions (the main source of global
-               warming). The local and immediate nature of people's energy
-               concerns can be the starting point for a new approach to energy
-               and climate change policy.",
-  publisher = "MIT Press",
-  month     =  "22~" # aug,
-  year      =  2014,
-  keywords  = "IESA;Add to IESA",
-  language  = "en",
-  isbn      = "9780262321075"
 }
 
 
@@ -3986,17 +3882,6 @@
   doi       = "10.1080/10556781003625177"
 }
 
-
-@BOOK{boyd,
-  title     = "Convex Optimization",
-  author    = "Boyd, Stephen and Vandenberghe, Lieven",
-  publisher = "Cambridge University Press",
-  year      =  2010,
-  url       = "http://stanford.edu/~boyd/cvxbook/",
-  issn      = "1055-6788",
-  isbn      = "9780521833783",
-  doi       = "10.1080/10556781003625177"
-}
 
 
 @BOOK{bakke,
