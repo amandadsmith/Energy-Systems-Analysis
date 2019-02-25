@@ -81,11 +81,12 @@
 
 
 \section{Overview} %of Life Cycle Assessment for Building Energy Use}
-Energy used in buildings accounts for about 20\%  of the total delivered energy in the world \cite{ODE2016}. One of the tools which is widely used for calculating energy and environmental performance from a broad perspective is \textbf{life cycle assessment (LCA)}, which is used to evaluate the material and energy inputs and outputs in different stages through the life cycle of a given system. A building consumes energy for the production of materials used in its construction; for the transport of these materials to the site; and for the operation, renovation, maintenance, and demolition of the building \cite{cabeza2014life}. Life cycle assessment can be used for evaluating the not only energy use associated with a building, but for its life cycle cost and $CO_2$ footprint. %One of the challenges researchers have noted when applying LCA is the wide variation in results when this type of assessment is used in construction sector. Several software tools are also developed to help researchers assess the life cycle thinking in building faster. 
+Energy used in buildings accounts for about 20\%  of the total delivered energy in the world \cite{ODE2016}. One of the tools which is widely used for calculating energy and environmental performance from a broad perspective is \textbf{life cycle assessment (LCA)}, which is used to evaluate the material and energy inputs and outputs in different stages through the life cycle of a given system. {\color{blue}A building consumes energy in three phases: pre-use (production of materials to construct the building), in-use (operation, renovation and maintenance), and post-use (demolition and/ or disposal)} \cite{cabeza2014life}. Life cycle assessment can be used for evaluating the not only energy use associated with a building, but for its life cycle cost and $CO_2$ footprint. 
 
-There are several potential methods to assess the environmental performance of different products or systems. Many of these methods are uniquely suitable for a specific purpose, and they can suffer from many disadvantages which we will discuss throughout the lecture \cite{crawford2003validation}. LCA is a widely accepted methodology, and one of the most popular tools for calculating the environmental performance of specific products or systems \cite{crawford2003validation}. In the LCA process, energy flows and the material inputs and outputs of a system are quantified and evaluated.  %LCA allows for an evaluation of the manner in which impacts are distributed across processes, and life cycle stages \cite{scheuer2003life}.
- LCA studies generally consist of four phases: %goal and scope definition, life cycle inventory (LCI), impact assessment, and interpretation of results 
- \cite{International_Organization_for_Standardization2006-gc}.  
+There are several potential methods to assess the environmental performance of different products or systems. %Many of these methods are uniquely suitable for a specific purpose, and they can suffer from many disadvantages which we will discuss throughout the lecture \cite{crawford2003validation}. 
+LCA is a widely accepted methodology, and one of the most popular tools for calculating the environmental performance of specific products or systems \cite{crawford2003validation}. LCA measures and analyzes energy flows and the material inputs and outputs of a system.
+ LCA studies generally consist of four phases: 
+ \cite{International_Organization_for_Standardization2006-gc}  
  
  \vspace{-6pt}
 \begin{enumerate}
@@ -100,7 +101,8 @@ There are several potential methods to assess the environmental performance of d
 \end{enumerate}
 \vspace{-6pt}
 
- Energy can be consumed throughout the life cycle of a building in several ways:  \textbf{embodied energy} (similar to embodied emissions or embodied water, as in Lecture 18); operational energy (used during the lifespan of a building for functions like lighting, HVAC, domestic hot water, plug loads and appliances, and many more); demolition energy (used to remove the structure from the building site and transport the materials to recycling and/or landfill sites) \cite{cabeza2014life}.
+
+ {\color{blue}Buildings use energy in several different forms during different phases of the building's life cycle:}  \textbf{embodied energy} (similar to embodied emissions or embodied water, as in Lecture 18); operational energy (used during the lifespan of a building for functions like lighting, HVAC, domestic hot water, plug loads and appliances, and many more); demolition energy (used to remove the structure from the building site and transport the materials to recycling and/or landfill sites) \cite{cabeza2014life}.
  
 \section{Methods for LCA} % Major section
 
@@ -124,13 +126,13 @@ as labor, energy, resources, and pollutants) per unit of final consumption of co
 
 Compared with process analysis, the main advantage of the input-output approach is its complete boundary. Input-output analysis works much like control volume analysis and therefore can provide a more complete accounting of what enters or exits a system. There are several indirect energy paths which are commonly not captured through process analysis alone; by using IO tables, all sectors can be included in the study. 
 
-%  However, it has several errors four of which have been discussed by Treloar; 1. The proportionality assumption; 2. The homogeneity assumption; 3. Errors relating to the use of economic data; and 4. Double counting of the energy embodied in delivered fuels \cite{treloar1998comprehensive}.
 
 \textit{Hybrid analysis} is a combination of the two primary methods: process and input-out analyses. Three particular combinations are discussed by Suh and Huppes \cite{suh2005methods}:
 
+Tiered hybrid in which for operation and disposal parts process analysis is used, and for construction part, important upstream paths are accounted using IO analysis
 
 \begin{itemize}
-  \item \textit{Tiered hybrid analysis} in which the data collected from the process analysis are used for operating and disposal phases. Other data are imported from an IO-based method for significant upstream processes \cite{suh2005methods}.   A sequence of approximations will be used, starting with the simplest assumption \cite{bullard1978net}. The first approximation is at the whole-economy level: the cost of a product is multiplied by the energy intensity per unit gross domestic product  (GDP) \cite{bilec2006example}. The second approximation begins by identifying major energy-paths of the product. The dis-aggregated parts of the product are categorized as either typical or atypical products of the existing IO sectors. The energy requirements of typical products can be determined directly from the I-O sector and energy use factors. The atypical products require further dis-aggregations and an iterative input-output approach \cite{bilec2006example}. The embodied energy in the remaining atypical inputs to the product is estimated using energy/GDP ratio as an average energy intensity \cite{bullard1978net}.
+  \item {\color{blue}\textit{Tiered hybrid analysis} in which process analysis is used for the operational and disposal phases and IO analysis is used to account for important upstream paths in the construction phase.} Other data are imported from an IO-based method for significant upstream processes \cite{suh2005methods}.   A sequence of approximations will be used, starting with the simplest assumption \cite{bullard1978net}. {\color{blue}``The first approximation is at the whole- economy level: the cost of a product is multiplied by the energy intensity per unit gross domestic product GDP''} \cite{bilec2006example}. The second approximation begins by identifying major energy-paths of the product.{\color{blue}``The dis-aggregated parts of the product are categorized as either typical or atypical products of the existing IO sectors. The energy requirements of typical products can be determined directly from the I-O sector and energy use factors. The atypical products require further dis-aggregations and an iterative input-output approach''} \cite{bilec2006example}. The embodied energy in the remaining atypical inputs to the product is estimated using energy/GDP ratio as an average energy intensity \cite{bullard1978net}.
 
   \item \textit{IO-based hybrid analysis} which is divided into four steps as proposed by Treloar et al. \cite{treloar2000hybrid}: 
   
@@ -144,8 +146,8 @@ Compared with process analysis, the main advantage of the input-output approach 
   This is ``an  excellent method, particularly when process-based data are not available for all energy sectors'' \cite{dixit2017embodied}.
 
 
-\item A matrix notation approach in which the process-based system is represented 
-in a technology matrix where ``each column of the  technology matrix is occupied  by  a  vector  of  inputs  and  outputs  per  unit  of operation time of each process, including the use and disposal phase,'' 
+\item {\color{blue}\textit{Integrated  hybrid  analysis}}, a matrix notation approach in which the process-based system is represented 
+in a technology matrix where ``each column of the  technology matrix is occupied  by  a  vector  of  inputs  and  outputs  per  unit  of operation time of each process, including the use and disposal phase'' 
 % by physical units per unit operation time of each process while the input-output system is represented by monetary units.
 \cite{suh2004system}. %This model is derived from a make-and-use framework for both the process-based and input-output-based systems by linking them through flows crossing the border between the two systems. 
 
