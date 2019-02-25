@@ -1,0 +1,256 @@
+% 2019-02-27
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=6.5in]{folder/photo.png}
+% \caption{}
+% \label{}
+% \end{figure}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{subfigure}
+\usepackage{stackrel}
+\usepackage{blindtext}
+
+\usepackage[url=false]{biblatex}
+\addbibresource{library.bib}
+
+\oddsidemargin=0.15in
+\evensidemargin=0.15in
+\topmargin=-.5in
+\textheight=9in
+\textwidth=6.25in
+
+\usepackage[colorlinks=true,breaklinks,pdfpagemode=none,linkcolor=blue,citecolor=blue]{hyperref}
+
+\usepackage{enumerate}
+% \vspace{-6pt}
+% \begin{itemize}
+%     \setlength{\itemsep}{0pt}%
+%     \setlength{\parskip}{0pt}%
+%     \item Item 1
+%     \item Item 2
+%         \begin{itemize}
+%             \setlength{\itemsep}{0pt}%
+%             \setlength{\parskip}{0pt}%
+%             \item Sublist Item 1
+%             \item Sublist Item 2
+%         \end{itemize}
+%         \item Item 3
+% \end{itemize}
+% \vspace{-6pt}
+
+
+\usepackage{enumitem}
+\setlist{itemsep=0mm}
+
+\usepackage{amsmath,amsfonts,amssymb,bm}
+
+
+\begin{document}
+
+   \noindent
+   \begin{center}
+
+   \hrulefill
+   
+   \vspace{5pt}
+   
+   \makebox[\textwidth]{ {\bf  Energy Systems Analysis} \hfill  Z. Ghaemi, A.D. Smith 2019}
+   \vspace{0pt}
+   
+   {\Large \hfill  Lecture 19.  Building Energy Use: Life Cycle Assessment}
+   \vspace{5pt}
+
+
+
+   \hrulefill
+   \end{center}
+
+{\color{darkgray}{{\center{ \small{      ``Nearly all the definitions of sustainability that have circulated in recent years emphasize an ecological point of view---the notion that human society and economy are intimately connected to the natural environment.''
+\\%[3pt]
+\rightline{{\rm --- Jeremy L. Caradonna \cite{Caradonna2014-fa}}}}}}}}
+
+
+\section{Overview} %of Life Cycle Assessment for Building Energy Use}
+Energy used in buildings accounts for about 20\%  of the total delivered energy in the world \cite{ODE2016}. One of the tools which is widely used for calculating energy and environmental performance from a broad perspective is \textbf{life cycle assessment (LCA)}, which is used to evaluate the material and energy inputs and outputs in different stages through the life cycle of a given system. A building consumes energy for the production of materials used in its construction; for the transport of these materials to the site; and for the operation, renovation, maintenance, and demolition of the building \cite{cabeza2014life}. Life cycle assessment can be used for evaluating the not only energy use associated with a building, but for its life cycle cost and $CO_2$ footprint. %One of the challenges researchers have noted when applying LCA is the wide variation in results when this type of assessment is used in construction sector. Several software tools are also developed to help researchers assess the life cycle thinking in building faster. 
+
+There are several potential methods to assess the environmental performance of different products or systems. Many of these methods are uniquely suitable for a specific purpose, and they can suffer from many disadvantages which we will discuss throughout the lecture \cite{crawford2003validation}. LCA is a widely accepted methodology, and one of the most popular tools for calculating the environmental performance of specific products or systems \cite{crawford2003validation}. In the LCA process, energy flows and the material inputs and outputs of a system are quantified and evaluated.  %LCA allows for an evaluation of the manner in which impacts are distributed across processes, and life cycle stages \cite{scheuer2003life}.
+ LCA studies generally consist of four phases: %goal and scope definition, life cycle inventory (LCI), impact assessment, and interpretation of results 
+ \cite{International_Organization_for_Standardization2006-gc}.  
+ 
+ \vspace{-6pt}
+\begin{enumerate}
+
+\item  The \textit{goal and scope definition} phase requires understanding why the study is performed, how it is helpful, and who can take advantage of the resulting information. 
+ 
+\item The \textit{life cycle inventory (LCI) analysis} is performed to collect the needed input data for the system of interest. The inventory depends on the specified system boundary and the ultimate goal of the study. Inputs to the system can include land use, water, energy consumption, $CO_2$ footprint, and cost. All the data for the subsequent phase should be accumulated. 
+
+\item The \textit{impact assessment} phase of LCA uses inventory analysis to calculate the system outputs. The output of the system also depends on the specified system boundary and the ultimate goal of the study. The output will be the system's final life cycle energy, cost, water, or whatever resource is of concern. 
+
+\item \textit{Interpretation of results} means the data from the inventory analysis and results from the impact assessment are taken together and interpreted to address the ultimate goal of the study. This phase assists the readers or recipients with drawing conclusions and making decisions consistent with the aims of the study.
+\end{enumerate}
+\vspace{-6pt}
+
+ Energy can be consumed throughout the life cycle of a building in several ways:  \textbf{embodied energy} (similar to embodied emissions or embodied water, as in Lecture 18); operational energy (used during the lifespan of a building for functions like lighting, HVAC, domestic hot water, plug loads and appliances, and many more); demolition energy (used to remove the structure from the building site and transport the materials to recycling and/or landfill sites) \cite{cabeza2014life}.
+ 
+\section{Methods for LCA} % Major section
+
+Embodied energy has been a particular challenge in calculating the building's life cycle energy \cite{dixit2010identification}. For calculating embodied energy, three primary methods have been employed in the literature:
+
+\textit{Process analysis} is a commonly used method for calculating the building's life cycle energy:
+
+\begin{quote}
+    the determination of the energy required by a process, and the energy required to  provide inputs to the process, and the inputs to those processes, and so forth \cite{treloar1998comprehensive}
+\end{quote}
+
+
+\textit{Input-output (IO) analysis} is an economically-based method for calculating system inflows and outflows:
+
+\begin{quote}
+    a  top-down economic technique that uses sectoral monetary
+transactions data to account for the complex interdependencies of industries in modern economies. The result of generalized input-output analyses are \textit{total factor multipliers}, which describe embodiments of production factors (such
+as labor, energy, resources, and pollutants) per unit of final consumption of commodities. \cite{Lenzen2000-vu}
+\end{quote}
+
+
+Compared with process analysis, the main advantage of the input-output approach is its complete boundary. Input-output analysis works much like control volume analysis and therefore can provide a more complete accounting of what enters or exits a system. There are several indirect energy paths which are commonly not captured through process analysis alone; by using IO tables, all sectors can be included in the study. 
+
+%  However, it has several errors four of which have been discussed by Treloar; 1. The proportionality assumption; 2. The homogeneity assumption; 3. Errors relating to the use of economic data; and 4. Double counting of the energy embodied in delivered fuels \cite{treloar1998comprehensive}.
+
+\textit{Hybrid analysis} is a combination of the two primary methods: process and input-out analyses. Three particular combinations are discussed by Suh and Huppes \cite{suh2005methods}:
+
+
+\begin{itemize}
+  \item \textit{Tiered hybrid analysis} in which the data collected from the process analysis are used for operating and disposal phases. Other data are imported from an IO-based method for significant upstream processes \cite{suh2005methods}.   A sequence of approximations will be used, starting with the simplest assumption \cite{bullard1978net}. The first approximation is at the whole-economy level: the cost of a product is multiplied by the energy intensity per unit gross domestic product  (GDP) \cite{bilec2006example}. The second approximation begins by identifying major energy-paths of the product. The dis-aggregated parts of the product are categorized as either typical or atypical products of the existing IO sectors. The energy requirements of typical products can be determined directly from the I-O sector and energy use factors. The atypical products require further dis-aggregations and an iterative input-output approach \cite{bilec2006example}. The embodied energy in the remaining atypical inputs to the product is estimated using energy/GDP ratio as an average energy intensity \cite{bullard1978net}.
+
+  \item \textit{IO-based hybrid analysis} which is divided into four steps as proposed by Treloar et al. \cite{treloar2000hybrid}: 
+  
+  \begin{enumerate}
+      \item ``Derive an input-output LCA model;
+      \item Extract the most important pathways for the construction sector;
+      \item Derive case specific LCA data for the building and its components; and
+   \item Substitute the case-specific LCA data into the input-output model.'' \cite{treloar2000hybrid}
+  \end{enumerate}
+  
+  This is ``an  excellent method, particularly when process-based data are not available for all energy sectors'' \cite{dixit2017embodied}.
+
+
+\item A matrix notation approach in which the process-based system is represented 
+in a technology matrix where ``each column of the  technology matrix is occupied  by  a  vector  of  inputs  and  outputs  per  unit  of operation time of each process, including the use and disposal phase,'' 
+% by physical units per unit operation time of each process while the input-output system is represented by monetary units.
+\cite{suh2004system}. %This model is derived from a make-and-use framework for both the process-based and input-output-based systems by linking them through flows crossing the border between the two systems. 
+
+\end{itemize}
+
+
+% There are several review articles on life cycle assessment that are worth mentioning:
+% \begin{itemize}
+ 
+% \item ``Can life-cycle assessment produce reliable policy guidelines in
+% the building sector?'' by S{\"a}yn{\"a}joki is done in 2016 analyzed 116 cases on life cycle assessment in buildings \cite{saynajoki2017can}. 
+
+% \item ``Improving environmental performance of building through increased energy
+% efficiency: A review'' by Dakwale is mostly focused on life cycle energy in high efficient buildings \cite{dakwale2011improving}. 
+
+% \item ``Life cycle assessment (LCA) and life cycle energy analysis (LCEA)
+% of buildings and the building sector: A review'' is on life cycle assessment of the different types of buildings and diverse LCA methods thorough the literature \cite{cabeza2014life}. 
+
+% \item ``Life cycle assessment of buildings: A review''   by Sharma has analyzed several case studies in residential and commercial building sectors. 
+
+% Several case studies in diverse countries, using different methods, structures, and in different years are mentioned in tables \ref{lithybrid} and \ref{litdeve}.
+
+% \end{itemize}
+
+\section{Variation in LCA results}
+ 
+LCA results vary for different cases and even for a single case which is solved by different methods. This is one of the most challenging problems in using LCA for complex systems like buildings. Dixit et al.  discussed the most important reasons behind the variations in results \cite{dixit2010identification}:
+
+\begin{itemize}
+\item  System boundaries
+
+A full description of the system's boundary is often neglected in the literature. %The goal and scope of the study clarify the numbers of upstream stages that are needed for the study. 
+  
+\item  Methods of embodied energy analysis
+
+Each potential method for quantifying embodied energy has its own limitations, uncertainties, and potential for errors.  Limitations in gathering data lead to incomplete results and some of the upstream stages may be missed. 
+
+\item  Geographic location of study area
+
+Case studies are solved in different countries with diverse economic systems, weather conditions, industries, and manufacturing technologies. These  characteristics, as well as differences in collecting and presenting data, can  make the results vary for each country.
+
+\item  Primary energy vs. delivered energy
+
+Primary energy is defined as ``the energy required from nature (for example, coal) embodied in the energy consumed by the purchaser (for example, electricity)'' \cite{dixit2010identification} and delivered energy (like `site energy') as ``the energy used by the consumer'' \cite{dixit2010identification}. Comparing results when the type of energy in the studies differs can be misleading. 
+
+\item Age of data sources
+
+In each country, its economy, industries, and manufacturing processes are changing throughout the years. Therefore, data taken from sources of different ages will differ. 
+
+ 
+\item Technology of manufacturing processes
+
+Different countries use different technologies and manufacturing processes. Usually technological changes make processes more efficient and less energy consuming. Embodied energy calculations for LCA rely on technologically representative data. 
+\end{itemize}
+
+\section{Software tools for LCA} 
+ 
+There are many construction-related software tools and databases that attempt to provide standardized assessment models and inventory data at multiple scales. The scales range from industry-wide and sector-wide data down to product-and even brand-specific data.  These include:
+
+\begin{itemize}
+\item U.S. Life Cycle Inventory Database by National Renewable Energy Laboratory (free): \\\url{https://www.nrel.gov/lci/}
+\item BEES (Building for Environmental and Economic Sustainability) by National Institute of Standards and Technology (free): \\\url{https://www.nist.gov/services-resources/software/bees}
+    \item OpenLCA by GreenDelta (free and open source): \\\url{http://www.openlca.org/}
+    \item ecoinvent Database by ecoinvest, Switzerland (paid): \\\url{https://www.ecoinvent.org/database/database.html}
+    \item Inventory of Carbon and Energy (ICE) Database, created at University of Bath, UK (free): \\\url{http://www.circularecology.com/embodied-energy-and-carbon-footprint-database.html}
+    \item SimaPro LCA software by LCA Consultants, Denmark (paid): \\\url{https://lca-net.com/simapro/}
+    \item GaBi software by thinkstep, Germany (paid): \\\url{http://www.gabi-software.com/america/index/}
+    \item One-Click LCA by Bionava Ltd. (paid): \\\url{https://www.oneclicklca.com/construction/life-cycle-assessment-software/}
+    \item Athena LCA Software by Athena Sustainable Materials Institute (free): \\\url{http://www.athenasmi.org/our-software-data/overview/}
+\end{itemize}
+
+\section{Urban-scale LCA}
+
+There are studies that have been conducted on LCA at larger scales (district, campus, neighborhood, city, state or nation). The most common approach in performing LCA on systems larger than a single building is using economic input-output related tables. These tables may be available for countries, states, and specific cities. 
+
+One common difficulty in performing LCA for a single building is the lack of reliable, detailed, and relevant inventory data, and when dealing with multiple buildings at neighborhood or city scale, this problem can become even more complex when different building types, other land use types, roadways, and transportation come into play. Uncertainties in the analysis may grow nonlinearly as buildings are aggregated. 
+
+% To perform city-scale life cycle assessment, three methods are used in the literature. 1. consumption base approaches (CBA) e.g. environmentally extended input-output analysis, 2. metabolism base approaches (MBA) e.g. using the urban materials and energy flows in a city, and 3. complex system approaches. Life cycle assessment is widely used for CBA and MBA methods \cite{lotteau2015critical}. 
+
+% One of the problems in perform the life cycle assessment in single buildings is the lack inventory data, and the problem for neighborhoods is more complex dealing with several buildings, roads, open spaces, transportation, etc. 
+
+% In the literature, for the foreground stage, the direct energy coefficients are used when the neighborhood size is small. For large neighborhoods, input-output tables.  
+
+% The operation energy is either obtained through national average data or modelling approaches. EQUER software is used in several studies to perform life cycle energy in neighborhood scales. 
+
+% The background stages that are also called the up streams, are conducted in a few studies. In 66\% of studies, the process-based LCA analysis is performed \cite{lotteau2015critical}.  EQUER, novaEQUER, Lesosai, and Eco-bat are software tools, in which are suitable for calculating the life cycle assessment in larger-scales. In some of the studies, Inventory of Carbon Emission (ICE) database by university of Bath,  Economic input-output life cycle assessment (EIO-LCA) model, and IO-based hybrid input-analysis are used to obtain the energy consumption and greenhouse gas emissions associated by the construction sector.  
+
+
+% \begin{itemize}
+%     \item In 2008, \cite{ramaswami2008demand} worked on life cycle assessment of Greenhouse Gas Inventories for city-scale. Several studies on life cycle assessment for city-scale are available, but two issues are related to the conducted studies. The first one is that the airplane emissions when the airport is outside the city are ignored. The second problem is the embodied energy of upstream stages are neglected, and only the direct energy is calculated. \cite{ramaswami2008demand} solved the problem by using a material flow analysis (MFA) of the main upstream  materials inputs into the city with an emissions factor (EF) got from environmental life cycle assessment (LCA) of the main upstream materials.
+
+%     \item ClearPath is an ICLEI USA tool (\href{http://icleiusa.org/clearpath/}{ICLEI webpage}). In October 2018, a data-driven approach is performed by the city of Kirkwood, Mo. Through making a greenhouse gas inventory in ClearPath™, more sustainability goals are aimed by the city.  The  ClearPath™ software helps to gain the needed greenhouse gas inventory for several cities in the US and the world. 
+  
+    
+%\end{itemize}
+
+
+
+% license
+\bigskip
+\noindent
+\texttt{\footnotesize RESTRICTED PUBLIC LICENSE --- READ BEFORE SHARING. This is a draft version made available by Amanda D. Smith under a Creative Commons Attribution-NonCommercial-ShareAlike license. 
+\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}}
+
+
+\printbibliography
+
+\end{document}
