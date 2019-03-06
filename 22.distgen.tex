@@ -1,0 +1,209 @@
+% 2019-03-08
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=6.5in]{folder/photo.png}
+% \caption{}
+% \label{}
+% \end{figure}
+
+
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usepackage{subfigure}
+\usepackage{stackrel}
+\usepackage{blindtext}
+
+\usepackage{biblatex}
+\addbibresource{library.bib}
+
+\oddsidemargin=0.15in
+\evensidemargin=0.15in
+\topmargin=-.5in
+\textheight=9in
+\textwidth=6.25in
+
+\usepackage[colorlinks=true,breaklinks,pdfpagemode=none,linkcolor=blue,citecolor=blue]{hyperref}
+
+\usepackage{enumerate}
+% \vspace{-6pt}
+% \begin{itemize}
+%     \setlength{\itemsep}{0pt}%
+%     \setlength{\parskip}{0pt}%
+%     \item Item 1
+%     \item Item 2
+%         \begin{itemize}
+%             \setlength{\itemsep}{0pt}%
+%             \setlength{\parskip}{0pt}%
+%             \item Sublist Item 1
+%             \item Sublist Item 2
+%         \end{itemize}
+%         \item Item 3
+% \end{itemize}
+% \vspace{-6pt}
+
+
+\usepackage{enumitem}
+\setlist{itemsep=0mm}
+
+\usepackage{amsmath,amsfonts,amssymb,bm}
+
+\usepackage{scrextend}
+
+\begin{document}
+
+   \noindent
+   \begin{center}
+
+   \hrulefill
+   
+   \vspace{5pt}
+   
+   \makebox[\textwidth]{ {\bf Energy Systems Analysis} \hfill  A.D. Smith 2019}
+   \vspace{0pt}
+   
+   {\Large \hfill  Lecture 22. Distributed Power Generation
+}
+   \vspace{5pt}
+   
+  
+   \hrulefill
+   \end{center}
+
+{\color{darkgray}{\center{ \small{      ``The traditional grid was designed
+for centralized generation and one-way flow of
+electricity. DERs change that, placing generation
+assets on the distribution component of the grid
+and forcing bi-directional flow of electricity.''
+\\%[3pt]
+\rightline{{\rm --- ASHRAE report ``Building Our New Energy Future'' \cite{newenergyfuture}}}}}}}
+
+\section{What is distributed generation?}
+
+\textbf{Distributed generation (DG)} refers to power generation that happens outside of the traditional system where centralized power plants serve aggregated loads that are distributed spatially.  It is one \textit{type} of \textbf{distributed energy resource (DER)}, which is a broader category that we will discuss in subsequent lectures encompassing different types of energy systems that can generate, store, or conserve energy at or near the location of the end user. The key characteristic for DG is that electrical generation happens close to where the electricity will be consumed. The generators are typically smaller in capacity than centralized plants, and it often (but not always) happens outside of the electric utility business model.
+
+Many researchers, practitioners, and organizations who work with energy systems in the built environment recognize that the entire model of centralized power generation by an electric utility that then flows to the end user (purchaser) has recently become more complex, and we expect that energy sector will continue to evolve into a more interactive, decentralized, and hopefully more sustainable system of systems. A recent ASHRAE report that provides simple, understandable explanations for many of these changes frames DG as 3 kW--50 MW generators at the building level, saying:
+
+\begin{quote}
+    Distributed generation challenges the centralized
+generation model of the existing grid and is a driving
+force in changing the model of the grid from one-way to
+bi-directional electricity flow. \cite{newenergyfuture}
+\end{quote}
+
+
+\section{Why distributed generation?}
+
+There are a few common reasons why distributed generation is of interest to facility owners, rather than simply buying electricity from the local utility. These benefits are not guaranteed, and engineering analysis is {\color{blue} necessary for decision making, but they are common advantages that a DG system often can} provide.
+
+%\vspace{-6pt}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \item Cost savings---i.e. generating power for less than you would purchase it for.
+    \item Overall energy efficiency---e.g. eliminating transmission & distribution losses in transporting power through the electrical grid or capturing energy from waste heat that would otherwise be lost to the environment.
+    \item Overall emissions reductions---through efficient generation on-site, using less fossil fuel combustion or avoiding {\color{blue}fossil fuels} altogether.
+    \item Resiliency---particularly valuable if you live in an area prone to natural disasters or a part of the world where electric power service is not reliably available.
+    \item Supporting `clean' or renewable power generation for the built environment---particularly valuable if you live in a region of the grid where most of the generators are less 'clean.'
+\end{itemize}
+%\vspace{-6pt}
+
+\section{Options for distributed generation}
+
+\subsection{Combined Heat and Power}
+
+When power is generated on site, another potential benefit is recovering `waste heat' that is typically rejected as a consequence of power generation to instead serve the facility in a useful way, such as providing space heating, domestic hot water, or process heat for industrial facilities. This is called, aptly, \textbf{combined heat and power (CHP)}. You may also hear people refer to the same types of technologies as \textbf{cogeneration} systems, which implies a more technical definition (Section \ref{dgdefs}), but CHP is a more broad and more modern term.
+
+Typical combined heat and power \textit{prime movers} include, in order of installed capacity in the U.S. \cite{Combined_Heat_and_Power_Partnership2017-rd}:
+
+\vspace{-6pt}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \item Reciprocating engines
+    \item Gas turbines
+    \item Steam turbines
+    \item Microturbines
+    \item Fuel cells
+\end{itemize}
+\vspace{-6pt}
+
+Each of these types of generators can be used simply as DG on their own, without the complement of useful heat production. Reciprocating engines, in particular, are often used as backup capacity for power generation when redundancy is required beyond relying on the electrical grid (i.e. for hospitals or other critical emergency facilities). 
+
+However, often considering the CHP system as  whole, rather than the generation component alone, will lend possibilities of more favorable economic returns and greater energy savings opportunities overall. In the same vein, the concept of CHP can be extended to \textbf{combined cooling, heating, and power (CCHP)} or \textit{trigeneration} systems, where cooling services are provided from the same primary energy input as well, often through thermally driven technologies like absorption cooling. The terminology related to CCHP can vary widely \cite{Cho2014-os}, so it's important to get clarification when you're discussing it or provide a clear system definition when you're the one performing the analysis. When additional services are provided, such as hydrogen production or useful chemical outputs, the catchall term is \textit{multigeneration} \cite{Chicco2009-go}.
+
+\subsection{Renewables}
+
+Renewable generators, particularly solar panels, may be commercially available at small scales and in modular formats that are amenable to being integrated into a building site.  Renewable options for distributed generation include:
+
+\vspace{-6pt}
+\begin{itemize}
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parskip}{0pt}%
+    \item Solar photovoltaics (PV)
+    \item Small wind turbines
+    \item Small hydropower plants
+    \item Biomass combustion (technically `renewable' but not `clean')
+\end{itemize}
+\vspace{-6pt}
+
+Solar PV is currently the vast majority of installed capacity of renewable distributed generation, although wind turbines and hydropower make up the majority of installed renewable generation overall.
+
+While small renewable installations, particularly solar panels, are highly visible and much touted, it's often the case that centralized renewables are cheaper (i.e. lower LCOE) \cite{Trabish2013-cn}. The motivations behind (and the groups pushing for) decentralized energy and renewable energy are highly overlapping, but are not entirely the same. %It's likely that a sustainable energy sector (as in the broad view of sustainability presented in Lecture 1), if achieved in our lifetimes, will include massive increases in both distributed/small-scale generators and renewable generation, but will retain both centralized/large-scale generators and some non-renewable sources 
+
+\section{Valuation of distributed energy services}
+
+The key benefit of distributed generation is its proximity to the loads it serves. However, because the energy system is itself so localized, the potential benefits are also highly location dependent:
+
+\begin{quote}
+    Distributed generation systems are subject to a different mix of local, state, and federal policies, regulations, and markets compared with centralized generation. As policies and incentives vary widely from one place to another, the financial attractiveness of a distributed generation project also varies. \cite{noauthor_2015-jm}
+\end{quote}
+
+The exact same project, even within the same climate zone, may have a positive net present value in one location and a negative present value in another, simply due to local policies and markets.
+
+The same thing can happen on the environmental side: a highly efficient natural gas-fired generator might reduce total (direct + indirect) GHG emissions in one location where the majority of grid electricity comes from coal and gas, but could actually increase total emissions in another location with similar loads where a large share of grid electricity comes from renewable sources or low-carbon power plants.
+
+\section{Distributed Power Generation Terminology}
+\label{dgdefs}
+
+These are selected key terms that you might not already be familiar with which will come into play in our further discussions on comparing options for distributed power generation, economic analysis and primary energy analysis.
+
+\begin{labeling}{longest item in list long}
+
+\item [\textbf{cogeneration}] (A legally defined term in the U.S.) ``a generating facility that sequentially produces electricity and another form of useful thermal energy (such as heat or steam) in a way that is more efficient than the separate production of both forms of energy. For example, in addition to the production of electricity, large cogeneration facilities might provide steam for industrial uses in facilities such as paper mills, refineries, or factories, or for HVAC applications in commercial or residential buildings. Smaller cogeneration facilities might provide hot water for domestic heating or other useful applications. In order to be considered a qualifying cogeneration facility, a facility must meet all of the requirements [under the law] for operation, efficiency and use of energy output \ldots There is no size limitation for qualifying cogeneration facilities.'' \cite{PURPAwhatisQF}
+
+\item [\textbf{combined heat and power (CHP)}]  ``A plant designed to produce both heat and electricity from a single heat source.'' \cite{EIAglossary}
+
+\item [\textbf{combined cooling heating and power (CCHP)}] A plant designed to produce both cooling, useful heat and electricity from a single primary energy source.
+
+\item [\textbf{fuel cells}] Generators that ``use an electrochemical or battery-like process to convert the chemical energy of
+hydrogen into water and electricity.'' \cite{EIAglossary} Note that a fuel cell is not a heat engine, although you can use a Carnot engine-like analysis method to find its maximum thermal efficiency by replacing the high-temperature reservoir with a reactor \cite{Lutz2002-co}.
+
+\item [\textbf{independent power producer}] ``A corporation, person, agency, authority, or other legal entity or instrumentality that owns or operates facilities for the generation of electricity for use primarily by the public, and that is not an electric utility.'' \cite{EIAglossary}
+
+\item [\textbf{microturbine}]  ``Small combustion turbines that burn gaseous or liquid fuels to
+drive an electrical generator, \ldots the result of development work in small stationary and automotive gas
+turbines, auxiliary power equipment, and turbochargers.'' \cite{Combined_Heat_and_Power_Partnership2017-rd} 
+
+
+
+\end{labeling}
+
+% license
+\bigskip
+
+\noindent
+\texttt{\footnotesize RESTRICTED PUBLIC LICENSE --- READ BEFORE SHARING. This is a draft version made available by Amanda D. Smith under a Creative Commons Attribution-NonCommercial-ShareAlike license. 
+\href{https://creativecommons.org/licenses/by-nc-sa/4.0/}{CC BY-NC-SA 4.0}}
+
+% references
+\newpage
+\printbibliography
+
+\end{document}

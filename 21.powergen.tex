@@ -141,7 +141,7 @@ The region of the power grid that we belong to is called the Western Interconnec
 
 
 
-\section{Power Generation Timing%, \& valuation
+\section{Timing of Power Generation and Power Consumption%, \& valuation
 }
 
 Because the load that the generators on the grid are trying to meet is not constant over time, and neither is the set of available generators, the value of energy varies over time. We have historically been billed per kWh because it is only relatively recently in the history of the grid that the metering technology has existed to keep track of \textit{when} electricity is being delivered (as opposed to how much). To get a look at how electricity demand (and, therefore, production) are varying in real time, take a moment and look at the California Independent System Operator (CAISO) website called ``Today's Outlook'' at \url{http://www.caiso.com/TodaysOutlook/Pages/default.aspx} and view today's demand trend profile (illustrating forecasted and actual demand so far today). California ISO is a large independent grid operator providing a great deal of information about the system they manage \cite{CAISO}. You can also find their real-time data app ``ISO Today'' in the app store for either Apple or Google Play.
@@ -176,7 +176,7 @@ These are key terms that will lay the foundation for our further discussions on 
 
 \item [\textbf{load}] ``Load is the energy use; the ISO refers to utilities as load serving entities (LSEs) because that's what they do, serve load. Load is frequently confused with demand, which is actually how much power the load requires.'' \cite{understandingelectricity}
 
-\item [\textbf{primary energy}] Energy in the form that it is first accounted for in a statistical energy balance, before any transformation to secondary or tertiary forms of energy. For example, coal can be converted to synthetic gas, which can be converted to electricity; in this example, coal is primary energy, synthetic gas is secondary energy, and electricity is tertiary energy.'' \cite{EIAglossary}
+\item [\textbf{primary energy}] ``Energy in the form that it is first accounted for in a statistical energy balance, before any transformation to secondary or tertiary forms of energy. For example, coal can be converted to synthetic gas, which can be converted to electricity; in this example, coal is primary energy, synthetic gas is secondary energy, and electricity is tertiary energy.'' \cite{EIAglossary}
 
 
 
@@ -195,3 +195,14 @@ These are key terms that will lay the foundation for our further discussions on 
 \printbibliography
 
 \end{document}
+
+You may see "capacity factor" used interchangeably with what we will call the "availability factor." This becomes important to differentiate if, for example, you are talking about a 'peaking unit', whose value comes from its constant availability as well as from the actual amount of electricity it generates.
+
+Here is how we will be using these terms and why:
+
+The U.S. EIA defines capacity factors based on how much is actually generated. "Capacity factors describe how intensively a fleet of generators is run. A capacity factor near 100\% means a fleet is operating nearly all of the time." (Source: Monthly generator capacity factor data now available by fuel and technology (Links to an external site.)Links to an external site.)
+The International Atomic Energy Agency defines availability factors based on how much the generator is available (and not how much it actually generates). "The energy availability factor over a specified period, is the ratio of the energy that the available capacity could have produced during this period, to the energy that the reference unit power could have produced during the same period." (Source: Glossary of Terms in PRIS Reports) (Links to an external site.)Links to an external site.. Here, 'reference unit power' = power if operating at nameplate capacity.
+ 
+
+I've also added a graph to your slides for today that better illustrates the "duck curve" situation on a spring day in California. NREL has a nice summary of the idea behind the duck curve and the recent history of this term: 
+Ten Years of Analyzing the Duck Chart (Links to an external site.)Links to an external site.
