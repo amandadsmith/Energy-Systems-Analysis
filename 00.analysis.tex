@@ -67,7 +67,7 @@
 \newcommand{\qed}{\rule{7pt}{7pt}}
 \newcommand{\cF}{\mathcal{F}}
 
-
+\usepackage{pdfpages}
 
 \begin{document}
 
@@ -96,6 +96,7 @@
 In an excellent book called \textit{How to Solve It} \cite{polya}, G. Polya presents a very general approach that can be applied to the analysis of energy systems. [My comments in brackets]
 
 \begin{quote}
+
 \begin{labeling}{longest}
 \item [\textbf{First}] You have to \textit{understand} the problem. \cite{polya} [No small feat for complex energy systems!]
 \item [\textbf{Second}] Find the connection between the data and the unknown \ldots You shoud obtain eventually a \textit{plan} of the solution. \cite{polya} [If that connection isn't there, it's time to back up to your data search or collection process.]
@@ -103,13 +104,17 @@ In an excellent book called \textit{How to Solve It} \cite{polya}, G. Polya pres
 \item [\textbf{Fourth}] \textit{Examine} the solution obtained. \ldots Can you \textit{check the result}?  \cite{polya} [Verification/validation often require critical thinking and creativity.]
 
 \end{labeling}
+
 \end{quote}
 
 \section{Working energy system problems}
 
-Many of the same techniques that are good for tackling thermal-fluid science or problems will be effective at energy systems problems.
+Many of the same techniques that are good for tackling thermal-fluid science problems in your core courses are effective for more energy systems problems as well.
+
 {\fontfamily{cmss}\selectfont
 \begin{enumerate}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
     \item Identify the system of interest.
     \item Define the question you want to investigate.
     \item Determine what you could measure or evaluate to address your question.
@@ -144,8 +149,12 @@ In creating (or `formulating') a model, we will be concerned with the behavior o
 
 \section{Integrated analysis method}
 
+This is illustrated graphically in increasing detail in the two flowcharts that follow.
+
 {\fontfamily{cmss}\selectfont
 \begin{enumerate}[(i)]
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
     \item Identify the system of interest.
     \item Define the question you want to investigate.
     \item Determine what you could measure or evaluate to address your question.
@@ -156,20 +165,18 @@ In creating (or `formulating') a model, we will be concerned with the behavior o
     \item Reassess the question you defined, considering whether you want to change it or investigate further.
     \item Reassess the level of detail and methods, considering whether you've adequately answered the question.
     \item Explain your results, documenting your methods and the analytic process itself.
-\end{enumerate}
+\end{enumerate} 
 }
 
-See Figure \ref{IAM}, where the iterative nature of the process is illustrated graphically.
 
-
-\medskip
-            \begin{figure}[h]
-            \centering
-            \includegraphics[width=6in]{extras00/IAMoverview.pdf}
-            \caption{Integrated Analysis Method overview}
-            \label{IAM}
-            \end{figure}
-\bigskip
+% \medskip
+%             \begin{figure}[h]
+%             \centering
+%             \includegraphics[width=6in]{extras00/IAMoverview.pdf}
+%             \caption{Integrated Analysis Method overview}
+%             \label{IAM}
+%             \end{figure}
+% \bigskip
 
 \section{Important Terms}
 
@@ -182,7 +189,7 @@ See Figure \ref{IAM}, where the iterative nature of the process is illustrated g
 
 % Add section on common energy units
 
-\bigskip
+%\bigskip
 
 \noindent
 \texttt{\footnotesize RESTRICTED PUBLIC LICENSE --- READ BEFORE SHARING. This is a draft version made available by Amanda D. Smith under a Creative Commons Attribution-NonCommercial-ShareAlike license. 
@@ -190,5 +197,9 @@ See Figure \ref{IAM}, where the iterative nature of the process is illustrated g
 
 % references
 \printbibliography
+
+
+\includepdf[page={1-2}]{extras00/IAMoverview.pdf}
+
 
 \end{document}
